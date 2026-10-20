@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>MokPixel | Logo, Mockup &amp; Poster Design in Kuala Lumpur</title>
   <meta name="description" content="MokPixel designs logos, mockups and posters for startups and established brands. Based in Kuala Lumpur. Logo branding from RM25.">
   <meta name="theme-color" content="#000000">
@@ -12,264 +12,243 @@
   <meta property="og:image" content="assets/og-image.jpg">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
-  <link rel="preload" href="assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="style.css?v=2">
+  <link rel="preload" href="assets/fonts/mona.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/serif.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=3">
+  <script>document.documentElement.classList.add("js")</script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
 
+  <!-- HEADER -->
   <header class="site-header" id="top">
-    <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="MokPixel home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-word">mokpixel</span>
-      </a>
-      <nav class="nav" id="nav" aria-label="Main">
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#process">Process</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="btn btn-neon header-cta" href="#contact">Start a project</a>
-      <button class="nav-toggle" aria-expanded="false" aria-controls="nav" aria-label="Open menu">
-        <span></span><span></span>
-      </button>
-    </div>
+    <a class="pill" href="#contact">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 13L13 3M6 3h7v7"/></svg>
+      Start a project
+    </a>
+    <a class="lockup" href="#top" aria-label="MokPixel home">
+      <span class="lockup-mark" aria-hidden="true"></span>
+      <span class="lockup-word"><span class="serif">Mok</span><span class="sans">Pixel</span></span>
+      <span class="lockup-sub">Design studio, Kuala Lumpur</span>
+    </a>
+    <button class="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Open menu">
+      <span></span><span></span>
+    </button>
   </header>
+
+  <!-- MENU OVERLAY -->
+  <div class="menu" id="menu" hidden>
+    <nav class="menu-nav" aria-label="Main">
+      <a href="#about"><span class="sans">About</span><span class="serif">About</span></a>
+      <a href="#work"><span class="sans">Work</span><span class="serif">Work</span></a>
+      <a href="#services"><span class="sans">Services</span><span class="serif">Services</span></a>
+      <a href="#process"><span class="sans">Process</span><span class="serif">Process</span></a>
+      <a href="#contact"><span class="sans">Contact</span><span class="serif">Contact</span></a>
+    </nav>
+    <div class="menu-foot">
+      <a href="https://wa.me/60196369900" target="_blank" rel="noopener">WhatsApp 019-636 9900</a>
+      <a href="mailto:muhammadfaiqzharfan.johari@gmail.com">muhammadfaiqzharfan.johari@gmail.com</a>
+    </div>
+  </div>
 
   <main id="main">
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true">
-        <canvas id="hero-3d"></canvas>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" aria-hidden="true"><canvas id="hero-3d"></canvas></div>
+
+      <h1 class="hero-title" id="hero-title">
+        <span class="serif">Transforming ideas</span>
+        <span class="sans">into visuals</span>
+      </h1>
+      <p class="hero-hint" aria-hidden="true"><span class="hint-mouse">Move your cursor to turn the sketch into the real thing</span><span class="hint-touch">Drag across the sketch to reveal the real thing</span></p>
+
+      <a class="hero-card" href="#services">
+        <span class="hero-card-label">Logo branding from</span>
+        <span class="hero-card-price">RM25</span>
+        <span class="hero-card-link">See services</span>
+      </a>
+
+      <div class="hero-lock">
+        <span class="hero-lock-label" id="lock-label">Tap to reveal</span>
+        <button class="lock-btn" aria-pressed="false" aria-labelledby="lock-label">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M5.6 18.4l2.1-2.1M16.3 7.7l2.1-2.1"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
       </div>
-      <div class="wrap hero-content">
-        <h1 class="hero-title">
-          <span class="line">Transforming</span>
-          <span class="line">ideas into</span>
-          <span class="line">visuals.</span>
-        </h1>
-        <div class="hero-sub">
-          <p class="hero-lede">Logos, mockups and posters for startups and established brands. Designed in Kuala Lumpur, built to make you stand out.</p>
-          <div class="hero-actions">
-            <a class="btn btn-neon" href="#contact">Start a project</a>
-            <a class="btn btn-ghost" href="#work">See the work</a>
-          </div>
-        </div>
-      </div>
-      <a class="hero-scroll" href="#about">Scroll</a>
     </section>
 
-    <!-- MARQUEE -->
-    <div class="ticker" aria-hidden="true">
-      <div class="ticker-track">
-        <span>Logo branding</span><i></i><span>Mockups</span><i></i><span>Posters</span><i></i><span>Stickers</span><i></i><span>Backdrops</span><i></i><span>Social media feeds</span><i></i><span>Billboards</span><i></i><span>Merch</span><i></i>
-        <span>Logo branding</span><i></i><span>Mockups</span><i></i><span>Posters</span><i></i><span>Stickers</span><i></i><span>Backdrops</span><i></i><span>Social media feeds</span><i></i><span>Billboards</span><i></i><span>Merch</span><i></i>
+    <!-- NOTE + SIGNATURE -->
+    <section class="note contours" id="about">
+      <div class="note-head">
+        <span class="lockup-mark small" aria-hidden="true"></span>
+        <p class="eyebrow">A note from MokPixel</p>
       </div>
-    </div>
+      <div class="note-photo">
+        <img src="assets/img/home-bg-a.webp" alt="MokPixel t-shirt mockup with the mokpixel wordmark" width="1800" height="1200" loading="lazy">
+        <svg class="signature" viewBox="0 0 150 250" aria-hidden="true">
+          <path pathLength="1" d="M49 2 L148 2 L148 50 L100 98 L100 50 L2 50 Z"/>
+          <path pathLength="1" d="M50 52 L50 99 L99 99 L50 148 L50 200 L2 248 L2 98 Z"/>
+        </svg>
+      </div>
 
-    <!-- ABOUT -->
-    <section class="about" id="about">
-      <div class="wrap about-grid">
-        <p class="about-statement">MokPixel creates visuals that elevate your brand. We listen to your vision and turn it into logos, mockups and posters that resonate with your audience, whether you’re a startup or an established business.</p>
-        <div class="about-side">
-          <figure class="about-media notch">
-            <img src="assets/img/hero.webp" alt="Phone case mockup with a neon illustrated character" width="1453" height="1800" loading="lazy">
-          </figure>
-          <p class="about-quote">“Mockups breathe life into your designs, transforming abstract concepts into tangible realities.”</p>
-        </div>
+      <div class="rows" aria-hidden="true">
+        <div class="row row-serif"><div class="row-track">
+          <span>Logos</span><span>Mockups</span><span>Posters</span><span>Stickers</span><span>Backdrops</span><span>Merch</span>
+          <span>Logos</span><span>Mockups</span><span>Posters</span><span>Stickers</span><span>Backdrops</span><span>Merch</span>
+        </div></div>
+        <div class="row row-sans"><div class="row-track">
+          <span>Visuals that resonate</span><span>Made in Kuala Lumpur</span><span>Visuals that resonate</span><span>Made in Kuala Lumpur</span>
+          <span>Visuals that resonate</span><span>Made in Kuala Lumpur</span><span>Visuals that resonate</span><span>Made in Kuala Lumpur</span>
+        </div></div>
+      </div>
+
+      <div class="statement">
+        <p class="eyebrow">MokPixel</p>
+        <h2 class="big">
+          <span class="sans">We turn</span> <span class="serif">your ideas</span>
+          <span class="sans">into visuals that</span> <span class="serif">resonate</span>
+          <span class="sans">with your audience.</span>
+        </h2>
+        <p class="statement-body">Whether you’re a startup or an established business, we listen to your vision and craft captivating logos, eye-catching mockups and impactful posters that help you stand out in the market.</p>
+      </div>
+    </section>
+
+    <!-- WORK COLLAGE -->
+    <section class="work contours" id="work">
+      <h2 class="big centered"><span class="serif">Selected</span> <span class="sans">work</span></h2>
+
+      <div class="collage">
+        <figure class="shot s1" data-speed="0.06">
+          <figcaption>MMHE #KSCCS, sticker roll</figcaption>
+          <img src="assets/img/work-roll-sticker.webp" alt="Rolls of round KSCCS safety stickers" width="1800" height="1350" loading="lazy">
+        </figure>
+        <figure class="shot s2" data-speed="-0.04">
+          <figcaption>Dapur Ibu, menu billboard</figcaption>
+          <img src="assets/img/work-dapur-ibu.webp" alt="Dapur Ibu menu billboard on a building" width="1800" height="1350" loading="lazy">
+        </figure>
+        <figure class="shot s3" data-speed="0.1">
+          <figcaption>Barkoba FC, social feed</figcaption>
+          <img src="assets/img/work-barkoba.webp" alt="Barkoba FC Instagram feed design on a phone" width="563" height="563" loading="lazy">
+        </figure>
+
+        <blockquote class="collage-quote">
+          <p>Mockups <em>breathe life</em> into your designs, transforming <em>abstract concepts</em> into tangible realities.</p>
+          <span class="lockup-mark small" aria-hidden="true"></span>
+        </blockquote>
+
+        <figure class="shot s4" data-speed="-0.06">
+          <figcaption>Lovely Haaniy, backdrop</figcaption>
+          <img src="assets/img/work-lovely-haaniy.webp" alt="Pastel ice-cream themed birthday backdrop design" width="1489" height="973" loading="lazy">
+        </figure>
+        <figure class="shot s5" data-speed="0.05">
+          <figcaption>Malaysia Olympic, jersey</figcaption>
+          <img src="assets/img/svc-viz-jersey.webp" alt="Long-sleeve Malaysia jersey mockup" width="1049" height="1049" loading="lazy">
+        </figure>
+        <figure class="shot s6" data-speed="-0.03">
+          <figcaption>MMHE #KSCCS, circle sticker</figcaption>
+          <img src="assets/img/work-circle-sticker.webp" alt="Circle KSCCS sticker reading Ini Bukan Kilang Kicap" width="1800" height="1350" loading="lazy">
+        </figure>
+        <figure class="shot s7" data-speed="0.08">
+          <figcaption>Beckham, tribute poster</figcaption>
+          <img src="assets/img/svc-poster.webp" alt="David Beckham tribute poster" width="1800" height="1350" loading="lazy">
+        </figure>
+        <figure class="shot s8" data-speed="-0.05">
+          <figcaption>Quotes, poster series</figcaption>
+          <img src="assets/img/work-quotes.webp" alt="Three framed motivational quote posters on a wall" width="1800" height="1350" loading="lazy">
+        </figure>
+        <figure class="shot s9" data-speed="0.04">
+          <figcaption>MokPixel, product render</figcaption>
+          <img src="assets/img/work-bg.webp" alt="Neon green road bike on black" width="1800" height="1350" loading="lazy">
+        </figure>
       </div>
     </section>
 
     <!-- SERVICES -->
-    <section class="section services" id="services">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 class="section-title">Bringing your brand to life, visually.</h2>
-          <p class="section-sub">Three services, one standard: original work that fits your audience.</p>
-        </div>
-
-        <article class="service">
-          <div class="service-text">
-            <h3>Logo branding</h3>
-            <p>A well-designed logo is the cornerstone of your brand’s identity. We work closely with you to understand your vision and values, then craft an original mark that stands out in a crowded market and reflects who you are.</p>
-            <p class="service-price">From <strong>RM25</strong></p>
-          </div>
-          <div class="service-strip">
-            <img src="assets/img/g-bag.webp" alt="Black paper bag with the white MokPixel P mark" width="1280" height="960" loading="lazy">
-            <img src="assets/img/g-sticker-logo.webp" alt="Round neon sticker with the MokPixel logo" width="1280" height="1280" loading="lazy">
-            <img src="assets/img/hiw-bg.webp" alt="Pile of neon and silver pin badges with the MokPixel logo" width="1800" height="1350" loading="lazy">
-          </div>
-        </article>
-
-        <article class="service">
-          <div class="service-text">
-            <h3>Design visualizations</h3>
-            <p>Attention-grabbing mockups that show your design in the real world, for events, promotions or online ads. We balance aesthetics and function so your audience gets the message and remembers it.</p>
-            <p class="service-price">From <strong>RM30</strong></p>
-          </div>
-          <div class="service-strip">
-            <img src="assets/img/g-jersey.webp" alt="Malaysia Olympic jersey mockup in black and gold" width="923" height="923" loading="lazy">
-            <img src="assets/img/hiw-mockup.webp" alt="Neon green shipping container branded with MokPixel" width="1800" height="883" loading="lazy">
-            <img src="assets/img/g-roller-sticker.webp" alt="Rolls of neon MokPixel logo stickers" width="1280" height="1280" loading="lazy">
-          </div>
-        </article>
-
-        <article class="service">
-          <div class="service-text">
-            <h3>Poster design</h3>
-            <p>Vibrant, bold posters for concerts, workshops and campaigns. We shape every layout around your theme so your event gets the attention it deserves and pulls in more attendees.</p>
-            <p class="service-price">From <strong>RM30</strong></p>
-          </div>
-          <div class="service-strip">
-            <img src="assets/img/g-beckham.webp" alt="David Beckham tribute poster with neon frame details" width="1280" height="960" loading="lazy">
-            <img src="assets/img/work-quotes.webp" alt="Three framed motivational quote posters on a wall" width="1800" height="1350" loading="lazy">
-            <img src="assets/img/work-x3.webp" alt="Neon billboard reading Bring your designs to life" width="1152" height="883" loading="lazy">
-          </div>
-        </article>
+    <section class="services" id="services">
+      <div class="services-head">
+        <p class="eyebrow">Services</p>
+        <h2 class="big"><span class="sans">Bringing your brand</span> <span class="serif">to life</span></h2>
       </div>
-    </section>
 
-    <!-- WORK -->
-    <section class="section work" id="work">
-      <div class="wrap work-head">
-        <div>
-          <h2 class="section-title">Selected work.</h2>
-          <p class="section-sub">Your brand, your vision, our design. Drag or use the arrows to browse.</p>
-        </div>
-        <div class="strip-controls">
-          <button class="arrow" data-dir="-1" aria-label="Previous projects">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
-          </button>
-          <button class="arrow" data-dir="1" aria-label="Next projects">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
-          </button>
-        </div>
-      </div>
-      <div class="strip" tabindex="0" aria-label="Project gallery">
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/work-roll-sticker.webp" alt="Rolls of round KSCCS safety stickers" loading="lazy" width="1800" height="1350"></div>
-          <figcaption><strong>MMHE #KSCCS</strong><span>Safety sticker roll</span></figcaption>
-        </figure>
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/work-circle-sticker.webp" alt="Circle KSCCS sticker reading Ini Bukan Kilang Kicap" loading="lazy" width="1800" height="1350"></div>
-          <figcaption><strong>MMHE #KSCCS</strong><span>Safety circle sticker</span></figcaption>
-        </figure>
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/work-lovely-haaniy.webp" alt="Pastel ice-cream themed birthday backdrop design" loading="lazy" width="1489" height="973"></div>
-          <figcaption><strong>Lovely Haaniy</strong><span>Backdrop design</span></figcaption>
-        </figure>
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/work-dapur-ibu.webp" alt="Dapur Ibu menu billboard on a building" loading="lazy" width="1800" height="1350"></div>
-          <figcaption><strong>Dapur Ibu</strong><span>Menu billboard</span></figcaption>
-        </figure>
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/work-barkoba.webp" alt="Barkoba FC Instagram feed design on a phone" loading="lazy" width="563" height="563"></div>
-          <figcaption><strong>Barkoba FC</strong><span>Social media feed</span></figcaption>
-        </figure>
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/work-quotes.webp" alt="Motivational quote posters in frames" loading="lazy" width="1800" height="1350"></div>
-          <figcaption><strong>Quotes</strong><span>Motivation-inspired posters</span></figcaption>
-        </figure>
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/svc-viz-jersey.webp" alt="Long-sleeve Malaysia jersey mockup" loading="lazy" width="1049" height="1049"></div>
-          <figcaption><strong>Malaysia Olympic</strong><span>Jersey mockup</span></figcaption>
-        </figure>
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/svc-poster.webp" alt="David Beckham tribute poster" loading="lazy" width="1800" height="1350"></div>
-          <figcaption><strong>Beckham</strong><span>Tribute poster</span></figcaption>
-        </figure>
-        <figure class="card">
-          <div class="card-img notch"><img src="assets/img/work-bg.webp" alt="Neon green road bike on black" loading="lazy" width="1800" height="1350"></div>
-          <figcaption><strong>MokPixel</strong><span>Product visualization</span></figcaption>
-        </figure>
-      </div>
+      <ul class="svc-list">
+        <li class="svc" data-img="assets/img/g-sticker-logo.webp">
+          <a href="#contact" data-service="Logo branding">
+            <span class="svc-name"><span class="sans">Logo branding</span><span class="serif">Logo branding</span></span>
+            <span class="svc-desc">An original mark that reflects your vision and values, and stands out in a crowded market.</span>
+            <span class="svc-price"><small>From</small>RM25</span>
+          </a>
+          <img class="svc-thumb" src="assets/img/g-sticker-logo.webp" alt="" width="1280" height="1280" loading="lazy">
+        </li>
+        <li class="svc" data-img="assets/img/hiw-mockup.webp">
+          <a href="#contact" data-service="Design visualizations">
+            <span class="svc-name"><span class="sans">Mockups</span><span class="serif">Mockups</span></span>
+            <span class="svc-desc">Your design shown in the real world, for events, promotions and online ads.</span>
+            <span class="svc-price"><small>From</small>RM30</span>
+          </a>
+          <img class="svc-thumb" src="assets/img/hiw-mockup.webp" alt="" width="1800" height="883" loading="lazy">
+        </li>
+        <li class="svc" data-img="assets/img/g-beckham.webp">
+          <a href="#contact" data-service="Poster design">
+            <span class="svc-name"><span class="sans">Posters</span><span class="serif">Posters</span></span>
+            <span class="svc-desc">Bold posters for concerts, workshops and campaigns that pull in more attendees.</span>
+            <span class="svc-price"><small>From</small>RM30</span>
+          </a>
+          <img class="svc-thumb" src="assets/img/g-beckham.webp" alt="" width="1280" height="960" loading="lazy">
+        </li>
+      </ul>
+      <img class="svc-float" alt="" aria-hidden="true">
     </section>
 
     <!-- PROCESS -->
-    <section class="section process" id="process">
-      <div class="wrap process-grid">
-        <div class="process-intro">
-          <h2 class="section-title">How a project runs.</h2>
-          <p class="section-sub">Eleven clear steps from first message to final files, so you always know where your project stands.</p>
-          <a class="btn btn-neon" href="#contact">Start with a brief</a>
-        </div>
-        <ol class="steps">
-          <li><span class="n">01</span><div><h3>Inquiry &amp; brief</h3><p>We discuss your requirements to understand your vision and goals.</p></div></li>
-          <li><span class="n">02</span><div><h3>Scope &amp; agreement</h3><p>Deliverables, timeline and pricing are set out clearly in a proposal.</p></div></li>
-          <li><span class="n">03</span><div><h3>Deposit</h3><p>An invoice is sent for the agreed deposit. Work starts once payment is confirmed.</p></div></li>
-          <li><span class="n">04</span><div><h3>Research</h3><p>We study industry trends, competitors and design inspiration.</p></div></li>
-          <li><span class="n">05</span><div><h3>Initial concepts</h3><p>Two or three design options based on your brief and the research.</p></div></li>
-          <li><span class="n">06</span><div><h3>Your feedback</h3><p>We present the concepts and gather detailed feedback.</p></div></li>
-          <li><span class="n">07</span><div><h3>Refine &amp; finalize</h3><p>Revisions on the chosen direction, then the final design is prepared.</p></div></li>
-          <li><span class="n">08</span><div><h3>Approval</h3><p>You review the final design and sign off when you’re happy.</p></div></li>
-          <li><span class="n">09</span><div><h3>Final payment</h3><p>An invoice for the remaining balance is sent before delivery.</p></div></li>
-          <li><span class="n">10</span><div><h3>Delivery</h3><p>Final files are delivered securely and neatly organized.</p></div></li>
-          <li><span class="n">11</span><div><h3>Follow-up</h3><p>Ongoing support whenever you need it, and a chance to share your feedback.</p></div></li>
-        </ol>
+    <section class="process contours" id="process">
+      <div class="process-head">
+        <p class="eyebrow">Process</p>
+        <h2 class="big"><span class="sans">Eleven steps,</span> <span class="serif">no surprises</span></h2>
+        <p class="process-intro">From first message to final files, you always know where your project stands.</p>
       </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="section pricing" id="pricing">
-      <div class="wrap">
-        <div class="section-head">
-          <h2 class="section-title">Affordable design.</h2>
-          <p class="section-sub">Quality logos, mockups and posters at prices that make sense for growing brands.</p>
-        </div>
-        <div class="plans">
-          <div class="plan">
-            <img class="plan-icon" src="assets/img/price-logo.webp" alt="" width="678" height="475" loading="lazy">
-            <h3>Logo branding</h3>
-            <p>Craft a unique identity for your brand.</p>
-            <p class="plan-price"><small>From</small> RM25</p>
-            <a class="btn btn-ghost" href="#contact" data-service="Logo branding">Get started</a>
-          </div>
-          <div class="plan plan-feature">
-            <img class="plan-icon" src="assets/img/price-mockup.webp" alt="" width="679" height="475" loading="lazy">
-            <h3>Design visualizations</h3>
-            <p>Make a statement with eye-catching mockups.</p>
-            <p class="plan-price"><small>From</small> RM30</p>
-            <a class="btn btn-neon" href="#contact" data-service="Design visualizations">Get started</a>
-          </div>
-          <div class="plan">
-            <img class="plan-icon" src="assets/img/price-poster.webp" alt="" width="679" height="475" loading="lazy">
-            <h3>Poster design</h3>
-            <p>Promote your message with striking posters.</p>
-            <p class="plan-price"><small>From</small> RM30</p>
-            <a class="btn btn-ghost" href="#contact" data-service="Poster design">Get started</a>
-          </div>
-        </div>
-      </div>
+      <ol class="steps">
+        <li><span class="n">01</span><h3>Inquiry &amp; brief</h3><p>We discuss your requirements to understand your vision and goals.</p></li>
+        <li><span class="n">02</span><h3>Scope &amp; agreement</h3><p>Deliverables, timeline and pricing are set out clearly in a proposal.</p></li>
+        <li><span class="n">03</span><h3>Deposit</h3><p>An invoice is sent for the agreed deposit. Work starts once payment is confirmed.</p></li>
+        <li><span class="n">04</span><h3>Research</h3><p>We study industry trends, competitors and design inspiration.</p></li>
+        <li><span class="n">05</span><h3>Initial concepts</h3><p>Two or three design options based on your brief and the research.</p></li>
+        <li><span class="n">06</span><h3>Your feedback</h3><p>We present the concepts and gather detailed feedback.</p></li>
+        <li><span class="n">07</span><h3>Refine &amp; finalize</h3><p>Revisions on the chosen direction, then the final design is prepared.</p></li>
+        <li><span class="n">08</span><h3>Approval</h3><p>You review the final design and sign off when you’re happy.</p></li>
+        <li><span class="n">09</span><h3>Final payment</h3><p>An invoice for the remaining balance is sent before delivery.</p></li>
+        <li><span class="n">10</span><h3>Delivery</h3><p>Final files are delivered securely and neatly organized.</p></li>
+        <li><span class="n">11</span><h3>Follow-up</h3><p>Ongoing support whenever you need it, and a chance to share your feedback.</p></li>
+      </ol>
     </section>
 
     <!-- TESTIMONIALS -->
-    <section class="section voices" id="testimonials">
-      <div class="wrap">
-        <h2 class="section-title">What clients say.</h2>
-        <div class="quotes">
-          <blockquote class="quote quote-lead">
-            <p>Working with Mokpixel was a game-changer. Their team created a stunning logo that perfectly captured our brand’s essence, elevating our market presence. Highly recommended!</p>
-            <footer><img src="assets/img/t-afiq.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Afiq Iqbal</strong>MMHE Holdings Berhad</span></footer>
-          </blockquote>
-          <blockquote class="quote">
-            <p>The Mokpixel team was fantastic to work with. They took our ideas and turned them into stunning visuals that helped us achieve our goals.</p>
-            <footer><img src="assets/img/t-zulhilmi.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Zulhilmi</strong>MMHE Holdings Berhad</span></footer>
-          </blockquote>
-          <blockquote class="quote">
-            <p>We were absolutely thrilled with the backdrop design for our client’s birthday event. Vibrant, creative and perfectly suited to our theme. The attention to detail was exceptional and added a special touch to the celebration.</p>
-            <footer><img src="assets/img/t-adila.webp" alt="" width="64" height="64" loading="lazy"><span><strong>Adila Zulhaidi</strong>Lovely Haaniy</span></footer>
-          </blockquote>
-        </div>
+    <section class="voices" id="testimonials">
+      <p class="eyebrow centered">What clients say</p>
+      <div class="voice-stage">
+        <blockquote class="voice is-active">
+          <p>“Working with Mokpixel was a game-changer. Their team created a stunning logo that perfectly captured our brand’s essence, elevating our market presence.”</p>
+          <footer><img src="assets/img/t-afiq.webp" alt="" width="56" height="56" loading="lazy"><span><strong>Afiq Iqbal</strong>MMHE Holdings Berhad</span></footer>
+        </blockquote>
+        <blockquote class="voice">
+          <p>“The Mokpixel team was fantastic to work with. They took our ideas and turned them into stunning visuals that helped us achieve our goals.”</p>
+          <footer><img src="assets/img/t-zulhilmi.webp" alt="" width="56" height="56" loading="lazy"><span><strong>Zulhilmi</strong>MMHE Holdings Berhad</span></footer>
+        </blockquote>
+        <blockquote class="voice">
+          <p>“We were absolutely thrilled with the backdrop design for our client’s birthday event. Vibrant, creative and perfectly suited to our theme.”</p>
+          <footer><img src="assets/img/t-adila.webp" alt="" width="56" height="56" loading="lazy"><span><strong>Adila Zulhaidi</strong>Lovely Haaniy</span></footer>
+        </blockquote>
+      </div>
+      <div class="voice-nav" role="group" aria-label="Choose testimonial">
+        <button aria-label="Testimonial 1" aria-current="true"></button>
+        <button aria-label="Testimonial 2"></button>
+        <button aria-label="Testimonial 3"></button>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section class="section contact" id="contact">
-      <div class="wrap contact-grid">
+    <section class="contact" id="contact">
+      <div class="contact-inner">
         <div class="contact-info">
-          <h2 class="contact-title">Let’s create something amazing together.</h2>
+          <h2 class="contact-title"><span class="sans">Let’s create</span> <span class="serif">something amazing</span> <span class="sans">together</span></h2>
           <ul class="contact-list">
             <li><span>WhatsApp / call</span><a href="tel:+60196369900">019-636 9900</a></li>
             <li><span>Email</span><a href="mailto:muhammadfaiqzharfan.johari@gmail.com">muhammadfaiqzharfan.johari@gmail.com</a></li>
@@ -285,7 +264,7 @@
           </table>
         </div>
 
-        <form class="contact-form notch" id="contact-form" novalidate>
+        <form class="contact-form" id="contact-form" novalidate>
           <div class="field">
             <label for="f-name">Name</label>
             <input id="f-name" name="name" type="text" autocomplete="name" required>
@@ -325,28 +304,17 @@
   </main>
 
   <footer class="site-footer">
-    <div class="wrap footer-top">
-      <a class="brand" href="#top" aria-label="Back to top">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span class="brand-word">mokpixel</span>
-      </a>
-      <nav class="footer-nav" aria-label="Footer">
-        <a href="#services">Services</a>
-        <a href="#work">Work</a>
-        <a href="#process">Process</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-    <p class="footer-word" aria-hidden="true">mokpixel</p>
-    <div class="wrap footer-bottom">
+    <p class="footer-word" aria-hidden="true"><span class="serif">Mok</span><span class="sans">Pixel</span></p>
+    <div class="footer-bottom">
       <p>© <span id="year">2026</span> MokPixel. Designed in Kuala Lumpur.</p>
-      <a href="#top">Back to top</a>
+      <nav class="footer-nav" aria-label="Footer">
+        <a href="#work">Work</a><a href="#services">Services</a><a href="#process">Process</a><a href="#contact">Contact</a><a href="#top">Back to top</a>
+      </nav>
     </div>
   </footer>
 
-  <script src="script.js?v=2" defer></script>
+  <script src="script.js?v=3" defer></script>
   <script src="assets/js/three.min.js" defer></script>
-  <script src="assets/js/hero3d.js?v=2" defer></script>
+  <script src="assets/js/hero3d.js?v=3" defer></script>
 </body>
 </html>
