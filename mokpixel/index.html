@@ -41,7 +41,10 @@
   <main id="main">
     <!-- HERO -->
     <section class="hero">
-      <div class="wrap hero-grid">
+      <div class="hero-bg" aria-hidden="true">
+        <canvas id="hero-3d"></canvas>
+      </div>
+      <div class="wrap hero-content">
         <h1 class="hero-title">
           <span class="line">Transforming</span>
           <span class="line">ideas into</span>
@@ -54,10 +57,8 @@
             <a class="btn btn-ghost" href="#work">See the work</a>
           </div>
         </div>
-        <figure class="hero-media notch">
-          <img src="assets/img/home-bg-a.webp" alt="Neon green MokPixel t-shirt with the mokpixel wordmark" width="1800" height="1200" fetchpriority="high">
-        </figure>
       </div>
+      <a class="hero-scroll" href="#about">Scroll</a>
     </section>
 
     <!-- MARQUEE -->
@@ -345,5 +346,7 @@
   </footer>
 
   <script src="script.js" defer></script>
+  <script src="assets/js/three.min.js" defer></script>
+  <script src="assets/js/hero3d.js" defer></script>
 </body>
 </html>
