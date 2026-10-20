@@ -82,7 +82,10 @@ button, input, textarea, select { font: inherit; color: inherit; }
 .hdr { position: sticky; top: 0; z-index: 100; background: rgba(0,0,0,.78); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid transparent; transition: border-color .3s; }
 .hdr.scrolled { border-bottom-color: var(--line); }
 .hdr-in { display: flex; align-items: center; gap: 24px; height: 76px; }
-.logo { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 700; font-size: 1.3rem; letter-spacing: -.03em; }
+.logo { display: inline-flex; align-items: center; text-decoration: none; color: var(--text); transition: color .2s; flex: none; }
+.logo:hover { color: var(--neon); }
+.logo-word { display: block; height: 36px; width: auto; margin-top: 7px; }
+@media (max-width: 960px) { .logo-word { height: 30px; margin-top: 6px; } }
 .logo-mark { width: 20px; height: 33px; background: var(--neon); -webkit-mask: url("../img/logo.png") center / contain no-repeat; mask: url("../img/logo.png") center / contain no-repeat; flex: none; }
 .nav { display: flex; gap: 4px; margin: 0 auto; }
 .nav a { padding: 8px 14px; border-radius: 999px; text-decoration: none; font-size: .95rem; font-weight: 500; color: var(--muted); transition: color .2s, background-color .2s; }
