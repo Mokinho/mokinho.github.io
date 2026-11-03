@@ -991,3 +991,79 @@ html.intro .hero-tray > :nth-child(5) { animation-delay: 2.45s; }
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .gradual-blur-inner > div { background: rgba(0, 0, 0, .3); opacity: .5; }
 }
+
+/* ---------- Drift wall (React Bits DriftWall, vanilla port) for "Client websites & landing pages" ---------- */
+.drift-wall {
+  --dw-tile-w: 260px;
+  --dw-gap: 18px;
+  --dw-lift: 64px;
+  --dw-dim: 0.55;
+  --dw-gray: 0;
+  --dw-overlay: #000;
+  --dw-edge: 40%;
+  position: relative;
+  height: 760px;
+  margin: 32px -48px -48px;
+  overflow: hidden;
+  border-radius: 0 0 var(--radius) var(--radius);
+  perspective: var(--dw-perspective, 1200px);
+  perspective-origin: 50% 50%;
+  -webkit-mask-image:
+    radial-gradient(ellipse 78% 82% at 50% 46%, #000 var(--dw-edge), transparent 100%),
+    linear-gradient(to top, #000 var(--dw-edge), transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image:
+    radial-gradient(ellipse 78% 82% at 50% 46%, #000 var(--dw-edge), transparent 100%),
+    linear-gradient(to top, #000 var(--dw-edge), transparent 100%);
+  mask-composite: intersect;
+}
+.drift-wall__plane {
+  position: absolute; top: 50%; left: 50%;
+  display: flex; flex-direction: row; align-items: flex-start;
+  transform-style: preserve-3d; transform-origin: 50% 50%;
+  will-change: transform;
+}
+.drift-wall__col { position: relative; width: calc(var(--dw-tile-w) + var(--dw-gap)); flex: 0 0 auto; transform-style: preserve-3d; }
+.drift-wall__track, .drift-wall__copy { display: flex; flex-direction: column; transform-style: preserve-3d; }
+.drift-wall__track { will-change: transform; }
+.drift-wall__tile { position: relative; padding: calc(var(--dw-gap) / 2); flex: 0 0 auto; transform-style: preserve-3d; }
+
+/* The card keeps its own structure; only its resting/hover treatment changes. */
+.drift-wall .project-card {
+  position: relative;
+  opacity: var(--dw-dim);
+  transform: translateZ(0);
+  transition:
+    transform .42s cubic-bezier(.22,1,.36,1),
+    opacity .42s cubic-bezier(.22,1,.36,1),
+    box-shadow .42s cubic-bezier(.22,1,.36,1),
+    border-color .42s cubic-bezier(.22,1,.36,1),
+    filter .42s cubic-bezier(.22,1,.36,1);
+  filter: grayscale(var(--dw-gray)) saturate(.92);
+}
+.drift-wall .project-card::after {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  background: var(--dw-overlay); opacity: .42; pointer-events: none;
+  transition: opacity .42s cubic-bezier(.22,1,.36,1);
+}
+.drift-wall .project-card:hover { transform: translateZ(0); box-shadow: none; border-color: var(--line); }
+.drift-wall__tile.is-active .project-card,
+.drift-wall__tile .project-card:focus-within {
+  opacity: 1;
+  transform: translateZ(var(--dw-lift));
+  filter: grayscale(0) saturate(1.05);
+  border-color: rgba(232,80,2,.45);
+  box-shadow: 0 24px 60px -18px rgba(0,0,0,.7), 0 18px 40px -20px rgba(232,80,2,.35);
+}
+.drift-wall__tile.is-active .project-card::after,
+.drift-wall__tile .project-card:focus-within::after { opacity: 0; }
+
+@media (max-width: 900px) {
+  .drift-wall { height: 680px; }
+}
+@media (max-width: 640px) {
+  .drift-wall { height: 600px; margin: 24px -22px -32px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .drift-wall__plane, .drift-wall__track { will-change: auto; }
+}

@@ -374,3 +374,32 @@ document.getElementById('year').textContent = new Date().getFullYear();
     hideAtEnd: true    // fade out at the very bottom so the footer isn't left blurred
   });
 })();
+
+// DriftWall — "Client websites & landing pages" cards drift on a tilted 3D wall
+(() => {
+  const grid = document.querySelector('#more-work .project-grid');
+  if (!grid || !window.DriftWall) return;
+  window.DriftWall(grid, {
+    itemSelector: '.project-card',
+    columns: 5,
+    tileWidth: 260,
+    gap: 18,
+    tilt: 16,
+    turn: -14,
+    perspective: 1200,
+    depth: 120,
+    speed: 42,
+    direction: 'up',
+    variance: 0.45,
+    parallax: 0.6,
+    lift: 64,
+    fade: 0.6,
+    dim: 0.55,
+    overlayColor: '#000000',
+    ariaLabel: 'Client websites and landing pages',
+    responsive: [
+      { maxWidth: 640, columns: 2, tileWidth: 172, gap: 12, lift: 36, tilt: 12, turn: -6, perspective: 1000, depth: 80, speed: 32, parallax: 0 },
+      { maxWidth: 900, columns: 4, tileWidth: 240 }
+    ]
+  });
+})();
