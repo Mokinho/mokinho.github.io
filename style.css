@@ -1061,9 +1061,6 @@ html.intro .hero-tray > :nth-child(5) { animation-delay: 2.45s; }
 @media (max-width: 900px) {
   .drift-wall { height: 680px; }
 }
-@media (max-width: 640px) {
-  .drift-wall { height: 600px; margin: 24px -22px -32px; }
-}
 @media (prefers-reduced-motion: reduce) {
   .drift-wall__plane, .drift-wall__track { will-change: auto; }
 }

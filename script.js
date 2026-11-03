@@ -397,8 +397,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
     dim: 0.55,
     overlayColor: '#000000',
     ariaLabel: 'Client websites and landing pages',
+    disableBelow: 640, // mobile keeps the original stacked card grid
     responsive: [
-      { maxWidth: 640, columns: 2, tileWidth: 172, gap: 12, lift: 36, tilt: 12, turn: -6, perspective: 1000, depth: 80, speed: 32, parallax: 0 },
       { maxWidth: 900, columns: 4, tileWidth: 240 }
     ]
   });

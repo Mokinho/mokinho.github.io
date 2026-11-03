@@ -30,6 +30,7 @@
     grayscale: false,
     overlayColor: '#060010',
     responsive: null, // [{ maxWidth, ...overrides }] — first match wins
+    disableBelow: 0, // viewport width (px) at or below which the original grid is kept as-is
     ariaLabel: 'Drifting wall of projects'
   };
 
@@ -46,8 +47,6 @@
     const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
     let reduced = mq.matches;
 
-    cards.forEach(card => card.classList.remove('reveal', 'in-view'));
-
     const wall = document.createElement('div');
     wall.className = 'drift-wall';
     wall.setAttribute('role', 'group');
@@ -55,7 +54,6 @@
     const plane = document.createElement('div');
     plane.className = 'drift-wall__plane';
     wall.appendChild(plane);
-    source.replaceWith(wall);
 
     let cfg = base;
     let cols = []; // { el, track, copies: [el], copyHeight, origin, offset, velocity, base }
@@ -68,6 +66,7 @@
     let raf = null;
     let lastTs = null;
     let visible = true;
+    let enabled = false;
 
     const resolveConfig = () => {
       let next = Object.assign({}, base);
@@ -200,11 +199,11 @@
         });
       }
 
-      raf = visible ? requestAnimationFrame(frame) : null;
+      raf = visible && enabled ? requestAnimationFrame(frame) : null;
     };
 
     const start = () => {
-      if (raf || !visible) return;
+      if (raf || !visible || !enabled) return;
       lastTs = null;
       raf = requestAnimationFrame(frame);
     };
@@ -267,16 +266,45 @@
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimer);
       resizeTimer = setTimeout(() => {
+        if (!enabled) return;
         if (window.innerWidth === lastWidth && Math.abs(wall.clientHeight - containerHeight) < 40) return;
         lastWidth = window.innerWidth;
         build();
       }, 200);
     });
 
-    build();
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(build);
-    start();
-    return { wall, rebuild: build };
+    // Swap between the drifting wall and the original grid (e.g. keep the plain grid on mobile).
+    const enable = () => {
+      if (enabled) return;
+      enabled = true;
+      cards.forEach(card => card.classList.remove('reveal', 'in-view'));
+      if (source.isConnected) source.replaceWith(wall);
+      lastWidth = window.innerWidth;
+      build();
+      start();
+    };
+    const disable = () => {
+      if (!enabled) return;
+      enabled = false;
+      if (raf) cancelAnimationFrame(raf);
+      raf = null;
+      setActive(null);
+      focusedCol = -1;
+      cards.forEach(card => source.appendChild(card));
+      plane.textContent = '';
+      cols = [];
+      if (wall.isConnected) wall.replaceWith(source);
+    };
+
+    const smallMq = base.disableBelow ? window.matchMedia(`(max-width: ${base.disableBelow}px)`) : null;
+    const sync = () => (smallMq && smallMq.matches ? disable() : enable());
+    if (smallMq) {
+      if (smallMq.addEventListener) smallMq.addEventListener('change', sync);
+      else if (smallMq.addListener) smallMq.addListener(sync);
+    }
+    sync();
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { if (enabled) build(); });
+    return { wall, rebuild: () => enabled && build() };
   }
 
   window.DriftWall = DriftWall;
