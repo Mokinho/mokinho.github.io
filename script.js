@@ -316,9 +316,10 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
   if (!fx || !window.TechText) return;
   const css = getComputedStyle(document.documentElement);
   const accent = css.getPropertyValue('--accent').trim() || '#e85002';
+  const blue = css.getPropertyValue('--blue').trim() || '#8ec5ff';
   const tt = window.TechText(fx, {
     segments: [
-      { text: '#', color: accent },
+      { text: '#', color: blue },
       { text: 'FAST\n' },
       { text: 'SECURE', color: accent },
       { text: ' &\nBUILT TO GROW' }
@@ -351,8 +352,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
   window.TrueFocus(el, {
     sentence: '“Hello, World!”',
     blurAmount: 4,
-    borderColor: accent,
-    glowColor: 'rgba(232, 80, 2, .6)',
+    borderColor: getComputedStyle(document.documentElement).getPropertyValue('--blue').trim() || '#8ec5ff',
+    glowColor: 'rgba(142, 197, 255, .6)',
     animationDuration: 0.6,
     pauseBetweenAnimations: 1
   });
