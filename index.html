@@ -10,10 +10,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700;125,800;125,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261104-section-arrows">
+<link rel="stylesheet" href="style.css?v=20261104-cosmic-journey">
 <script>(function(d){d.classList.add('intro');setTimeout(function(){if(!document.querySelector('.hero-sub.is-split'))d.classList.remove('intro');},4500);})(document.documentElement);</script>
 </head>
-<body>
+<body class="cosmic-journey">
+<div class="cosmic-sky" aria-hidden="true"><span class="cosmic-stars"></span><span class="cosmic-haze"></span></div>
+<div class="journey-rocket" aria-hidden="true"><svg viewBox="0 0 52 100" fill="none"><path class="rocket-flame" d="M20 72Q26 110 32 72" fill="#72dcff"/><path d="M14 61L5 80L18 74M38 61L47 80L34 74" fill="#3579ff"/><path d="M26 6C9 24 12 54 18 74H34C40 54 43 24 26 6Z" fill="#e6f8ff"/><path d="M26 6C19 13 16 22 15 30H37C36 22 33 13 26 6Z" fill="#347cff"/><circle cx="26" cy="41" r="8" fill="#0b2860" stroke="#72dcff" stroke-width="3"/><path d="M18 67H34" stroke="#145cff" stroke-width="3"/></svg></div>
 
 <a class="skip-link" href="#main">Skip to content</a>
 
@@ -799,11 +801,6 @@
     </svg>
   </div>
 
-  <!-- TEXT LOOP BAND -->
-  <div class="loop-band" id="loopBand" role="img" aria-label="Faiq &amp; Web Dev">
-    <p class="loop-band-fallback" aria-hidden="true">FAIQ &amp; WEB DEV ✦ FAIQ &amp; WEB DEV ✦ FAIQ &amp; WEB DEV</p>
-  </div>
-
   <!-- CONTACT -->
   <section class="contact" id="contact">
     <div class="hero-media" aria-hidden="true">
@@ -811,10 +808,11 @@
       <span class="glow g2"></span>
       <canvas class="particles"></canvas>
     </div>
+    <div class="contact-orbit-scene" aria-hidden="true"><svg viewBox="0 0 1200 700" fill="none"><ellipse cx="600" cy="350" rx="540" ry="260" stroke="#72dcff" stroke-opacity=".18" transform="rotate(-16 600 350)"/><ellipse cx="600" cy="350" rx="570" ry="210" stroke="#72dcff" stroke-opacity=".09" stroke-dasharray="5 16" transform="rotate(17 600 350)"/><g class="contact-planet"><circle cx="1000" cy="140" r="48" fill="#1354a6" fill-opacity=".45"/><path d="M962 119Q1014 102 1032 150M958 140Q1008 124 1041 159" stroke="#81e7ff" stroke-opacity=".22" stroke-width="8"/><ellipse cx="1000" cy="140" rx="78" ry="17" stroke="#9beaff" stroke-opacity=".5" stroke-width="3" transform="rotate(-25 1000 140)"/></g><g class="contact-satellite" transform="translate(135 445) rotate(-20)"><rect x="-15" y="-14" width="30" height="28" rx="5" fill="#9aeaff" fill-opacity=".7"/><path d="M-16-1H-70M16-1H70" stroke="#72dcff" stroke-width="3"/><rect x="-73" y="-23" width="42" height="44" rx="3" fill="#145cff" fill-opacity=".4" stroke="#72dcff" stroke-opacity=".6"/><rect x="31" y="-23" width="42" height="44" rx="3" fill="#145cff" fill-opacity=".4" stroke="#72dcff" stroke-opacity=".6"/><path d="M-52-22V20M52-22V20M-72-1H-32M32-1H72M0-14V-35M-9-36Q0-48 9-36" stroke="#a2eaff" stroke-opacity=".5"/></g><path d="M230 150v18m-9-9h18M950 540v16m-8-8h16M1080 350v12m-6-6h12" stroke="#bceeff" stroke-opacity=".55" stroke-width="2"/></svg></div>
     <div class="contact-body">
-      <p class="pill pill-accent reveal">Contact</p>
-      <h2 class="reveal">Have a project in mind? Let's talk.</h2>
-      <p class="reveal">Need help with a website — from scratch, or a rebuild? Reach out through any of the channels below.</p>
+      <p class="pill pill-accent reveal">Mission control</p>
+      <h2 class="reveal">Ready for your<br>next launch?</h2>
+      <p class="reveal">Let’s turn your next idea into a website that’s ready for take-off. Send a signal through any of the channels below.</p>
       <div class="contact-links">
         <a href="mailto:muhammadfaiqzharfan.johari@gmail.com" class="contact-link reveal">
           <span class="contact-label">Email</span>
@@ -855,7 +853,7 @@
         <linearGradient id="footerRoad" x2=".7" y2="1"><stop stop-color="#a4e8f0"/><stop offset="1" stop-color="#d2f8ff"/></linearGradient>
         <pattern id="footerGrass" width="36" height="32" patternUnits="userSpaceOnUse"><path d="M7 22l1-5m16 12 1-4" stroke="#8de8ff" stroke-width="1.2" opacity=".22"/><circle cx="17" cy="9" r="1" fill="#b6efff" opacity=".25"/></pattern>
       </defs>
-      <rect width="1600" height="650" fill="url(#footerSky)"/>
+      <rect width="1600" height="650" fill="url(#footerSky)" opacity="0"/>
       <path d="M0 240Q180 140 410 225T850 225Q1090 120 1300 200T1600 195V650H0Z" fill="url(#footerFar)"/>
       <path d="M0 260C280 150 420 200 690 335S1150 390 1600 210V650H0Z" fill="url(#footerHill)"/>
       <path d="M1600 270C1400 160 1230 200 1020 330S500 510 0 365V650H1600Z" fill="url(#footerFront)"/>
@@ -911,7 +909,7 @@
     </div>
     <div class="footer-bottom">
       <span>© <span id="year"></span> Faiq Zharfan. All rights reserved.</span>
-      <a href="#top" class="to-top">Back to top <span class="to-top-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></span></a>
+      <a href="#top" class="to-top">Launch to the top <span class="to-top-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="M5 12l7-7 7 7"/></svg></span></a>
     </div>
   </div>
 </footer>
@@ -920,9 +918,8 @@
 <script src="option-wheel.js" defer></script>
 <script src="dock.js" defer></script>
 <script src="rubber-segment.js" defer></script>
-<script src="text-loop.js" defer></script>
 <script src="true-focus.js" defer></script>
 <script src="gradual-blur.js" defer></script>
-<script src="script.js?v=20261104-project-reel" defer></script>
+<script src="script.js?v=20261104-cosmic-journey" defer></script>
 </body>
 </html>
