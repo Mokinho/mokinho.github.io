@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700;125,800;125,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261104-selected-work">
+<link rel="stylesheet" href="style.css?v=20261104-timeline-hex">
 <script>(function(d){d.classList.add('intro');setTimeout(function(){if(!document.querySelector('.hero-sub.is-split'))d.classList.remove('intro');},4500);})(document.documentElement);</script>
 </head>
 <body>
@@ -713,41 +713,35 @@
   <!-- EXPERIENCE -->
   <section class="panel tone-blue" id="experience">
     <p class="pill reveal">Experience</p>
-    <h2 class="reveal">Where I've worked &amp; studied</h2>
-    <ol class="timeline">
-      <li class="reveal"><span class="t-date">Feb 2025 — Present</span><div><h3>Senior Web Developer</h3><p class="t-org">Sterrific</p><p>Led production deployments, migrations and Cloudflare DNS/SSL setup with zero migration downtime and 35% faster sites. Built and maintained 40+ WordPress sites, and delivered a 40+ website revamp programme within four months.</p></div></li>
-      <li class="reveal"><span class="t-date">Apr 2024 — Jan 2025</span><div><h3>Web Developer</h3><p class="t-org">MacGad Technology Sdn Bhd</p><p>Improved WordPress site performance by 30%. Delivered production websites for Revor Mattress, MUVATA Auto Parts and Hyperack.</p></div></li>
-      <li class="reveal"><span class="t-date">Dec 2020 — Apr 2024</span><div><h3>Assistant Chief Information Technology</h3><p class="t-org">Yayasan Pasir Gudang</p><p>Developed and maintained the organisation's custom WordPress platform, and increased social media engagement by 50% through digital campaigns.</p></div></li>
-      <li class="reveal"><span class="t-date">Feb 2020 — Aug 2020</span><div><h3>Junior Programmer</h3><p class="t-org">Nestlé</p><p>Built the first paperless e-form system for two Nestlé factories using PowerApps, Power BI and SharePoint. DMAIC White Belt certified.</p></div></li>
-      <li class="reveal"><span class="t-date">Sep 2016 — Nov 2020</span><div><h3>Bachelor's Degree, Mathematics &amp; Computer Science</h3><p class="t-org">Universiti Malaysia Sabah</p><p>CGPA 3.5</p></div></li>
-    </ol>
+    <h2 class="reveal">The journey so far</h2>
+    <p class="career-intro">From mathematics and computer science to building and operating 40+ websites. Select a milestone to explore.</p>
+    <div class="career-scroll"><div class="career-track" role="tablist" aria-label="Career timeline">
+    <button type="button" class="career-stop" id="career-tab-0" role="tab" aria-selected="false" aria-controls="career-panel-0" tabindex="-1"><span class="career-date">Sep 2016 — Nov 2020</span><span class="career-node" aria-hidden="true"></span><span class="career-company">Education</span><span class="career-role">Bachelor's Degree, Mathematics &amp; Computer Science</span></button>
+<button type="button" class="career-stop" id="career-tab-1" role="tab" aria-selected="false" aria-controls="career-panel-1" tabindex="-1"><span class="career-date">Feb 2020 — Aug 2020</span><span class="career-node" aria-hidden="true"></span><span class="career-company">Nestlé</span><span class="career-role">Junior Programmer</span></button>
+<button type="button" class="career-stop" id="career-tab-2" role="tab" aria-selected="false" aria-controls="career-panel-2" tabindex="-1"><span class="career-date">Dec 2020 — Apr 2024</span><span class="career-node" aria-hidden="true"></span><span class="career-company">Yayasan Pasir Gudang</span><span class="career-role">Assistant Chief Information Technology</span></button>
+<button type="button" class="career-stop" id="career-tab-3" role="tab" aria-selected="false" aria-controls="career-panel-3" tabindex="-1"><span class="career-date">Apr 2024 — Jan 2025</span><span class="career-node" aria-hidden="true"></span><span class="career-company">MacGad Technology</span><span class="career-role">Web Developer</span></button>
+<button type="button" class="career-stop is-active" id="career-tab-4" role="tab" aria-selected="true" aria-controls="career-panel-4" tabindex="0"><span class="career-date">Feb 2025 — Present</span><span class="career-node" aria-hidden="true"></span><span class="career-company">Sterrific</span><span class="career-role">Senior Web Developer</span></button>
+    </div></div>
+    <div class="career-panels"><div class="career-detail" role="tabpanel" id="career-panel-0" aria-labelledby="career-tab-0" tabindex="0" hidden><div><span class="career-detail-date">Sep 2016 — Nov 2020</span><h3>Bachelor's Degree, Mathematics &amp; Computer Science</h3><p class="career-org">Universiti Malaysia Sabah</p></div><p class="career-description">CGPA 3.5</p></div>
+<div class="career-detail" role="tabpanel" id="career-panel-1" aria-labelledby="career-tab-1" tabindex="0" hidden><div><span class="career-detail-date">Feb 2020 — Aug 2020</span><h3>Junior Programmer</h3><p class="career-org">Nestlé</p></div><p class="career-description">Built the first paperless e-form system for two Nestlé factories using PowerApps, Power BI and SharePoint. DMAIC White Belt certified.</p></div>
+<div class="career-detail" role="tabpanel" id="career-panel-2" aria-labelledby="career-tab-2" tabindex="0" hidden><div><span class="career-detail-date">Dec 2020 — Apr 2024</span><h3>Assistant Chief Information Technology</h3><p class="career-org">Yayasan Pasir Gudang</p></div><p class="career-description">Developed and maintained the organisation's custom WordPress platform, and increased social media engagement by 50% through digital campaigns.</p></div>
+<div class="career-detail" role="tabpanel" id="career-panel-3" aria-labelledby="career-tab-3" tabindex="0" hidden><div><span class="career-detail-date">Apr 2024 — Jan 2025</span><h3>Web Developer</h3><p class="career-org">MacGad Technology Sdn Bhd</p></div><p class="career-description">Improved WordPress site performance by 30%. Delivered production websites for Revor Mattress, MUVATA Auto Parts and Hyperack.</p></div>
+<div class="career-detail" role="tabpanel" id="career-panel-4" aria-labelledby="career-tab-4" tabindex="0"><div><span class="career-detail-date">Feb 2025 — Present</span><h3>Senior Web Developer</h3><p class="career-org">Sterrific</p></div><p class="career-description">Led production deployments, migrations and Cloudflare DNS/SSL setup with zero migration downtime and 35% faster sites. Built and maintained 40+ WordPress sites, and delivered a 40+ website revamp programme within four months.</p></div></div>
   </section>
 
   <!-- FAQ -->
   <section class="panel" id="faq">
     <p class="pill reveal">FAQs</p>
-    <h2 class="reveal">Working with me, answered</h2>
-    <div class="faq-list">
-      <details class="reveal" open>
-        <summary>What do you specialise in?</summary>
-        <p>WordPress and PHP development — custom themes, plugins and WooCommerce builds — together with the website operations that keep them running: hosting, deployments, performance, security and technical SEO.</p>
-      </details>
-      <details class="reveal">
-        <summary>Can you handle hosting, migration and DNS?</summary>
-        <p>Yes. I work across Cloudways, cPanel, Plesk and Cloudflare — handling DNS, SSL, SMTP, staging-to-live deployments and migrations. My migrations have run with zero downtime.</p>
-      </details>
-      <details class="reveal">
-        <summary>Do you build custom WordPress functionality?</summary>
-        <p>Yes — custom themes and plugins with PHP and MySQL, ACF and Custom Post Types, dynamic filtering and taxonomies, WooCommerce payment and shipping functionality, and API integrations with CRM, ERP and other platforms.</p>
-      </details>
-      <details class="reveal">
-        <summary>Can you help with SEO and analytics?</summary>
-        <p>Yes. I handle page-speed optimisation and technical SEO — redirects, schema, XML sitemaps and Google Search Console fixes — plus Google Ads tracking.</p>
-      </details>
-      <details class="reveal">
-        <summary>Where are you based?</summary>
-        <p>I'm based in Kuala Lumpur, Malaysia, and currently work as a Senior Web Developer at Sterrific. I've delivered websites for clients in Malaysia and Singapore.</p>
-      </details>
+    <h2 class="reveal">A few things you might ask</h2>
+    <p class="faq-intro">Choose a topic around the hexagon. Hover, tap or use the arrow keys to explore.</p>
+    <div class="faq-explorer">
+      <div class="faq-orbit">
+        <svg class="faq-hex-grid" viewBox="0 0 600 600" aria-hidden="true"><polygon points="300,42 523,171 523,429 300,558 77,429 77,171"/><polygon points="300,100 472,200 472,400 300,500 128,400 128,200"/><polygon points="300,158 422,229 422,371 300,442 178,371 178,229"/><polygon points="300,216 372,258 372,342 300,384 228,342 228,258"/><path d="M300 42V558M77 171L523 429M523 171L77 429"/></svg>
+        <div class="faq-orbit-label" aria-hidden="true"><span>LET'S CONNECT</span><strong>Ask<br>Faiq.</strong><i>5 topics. Clear answers.</i></div>
+        <div class="faq-topics" role="tablist" aria-label="Frequently asked question topics"><button type="button" class="faq-topic faq-topic-0 is-active" role="tab" id="faq-tab-0" aria-selected="true" aria-controls="faq-answer-0" tabindex="0"><span class="faq-topic-number" aria-hidden="true">01</span><span>Specialisation</span></button><button type="button" class="faq-topic faq-topic-1" role="tab" id="faq-tab-1" aria-selected="false" aria-controls="faq-answer-1" tabindex="-1"><span class="faq-topic-number" aria-hidden="true">02</span><span>Hosting & migrations</span></button><button type="button" class="faq-topic faq-topic-2" role="tab" id="faq-tab-2" aria-selected="false" aria-controls="faq-answer-2" tabindex="-1"><span class="faq-topic-number" aria-hidden="true">03</span><span>Custom builds</span></button><button type="button" class="faq-topic faq-topic-3" role="tab" id="faq-tab-3" aria-selected="false" aria-controls="faq-answer-3" tabindex="-1"><span class="faq-topic-number" aria-hidden="true">04</span><span>SEO & analytics</span></button><button type="button" class="faq-topic faq-topic-4" role="tab" id="faq-tab-4" aria-selected="false" aria-controls="faq-answer-4" tabindex="-1"><span class="faq-topic-number" aria-hidden="true">05</span><span>Location</span></button></div>
+        <a class="faq-contact-node" href="#contact"><span aria-hidden="true">↗</span> Let's talk</a>
+      </div>
+      <div class="faq-answers"><div class="faq-answer" role="tabpanel" id="faq-answer-0" aria-labelledby="faq-tab-0" tabindex="0"><span class="faq-answer-index">01 / 05</span><h3>What do you specialise in?</h3><p>WordPress and PHP development — custom themes, plugins and WooCommerce builds — together with the website operations that keep them running: hosting, deployments, performance, security and technical SEO.</p><a href="#contact" class="faq-answer-link">Discuss your project <span aria-hidden="true">↗</span></a></div><div class="faq-answer" role="tabpanel" id="faq-answer-1" aria-labelledby="faq-tab-1" tabindex="0" hidden><span class="faq-answer-index">02 / 05</span><h3>Can you handle hosting, migration and DNS?</h3><p>Yes. I work across Cloudways, cPanel, Plesk and Cloudflare — handling DNS, SSL, SMTP, staging-to-live deployments and migrations. My migrations have run with zero downtime.</p><a href="#contact" class="faq-answer-link">Discuss your project <span aria-hidden="true">↗</span></a></div><div class="faq-answer" role="tabpanel" id="faq-answer-2" aria-labelledby="faq-tab-2" tabindex="0" hidden><span class="faq-answer-index">03 / 05</span><h3>Do you build custom WordPress functionality?</h3><p>Yes — custom themes and plugins with PHP and MySQL, ACF and Custom Post Types, dynamic filtering and taxonomies, WooCommerce payment and shipping functionality, and API integrations with CRM, ERP and other platforms.</p><a href="#contact" class="faq-answer-link">Discuss your project <span aria-hidden="true">↗</span></a></div><div class="faq-answer" role="tabpanel" id="faq-answer-3" aria-labelledby="faq-tab-3" tabindex="0" hidden><span class="faq-answer-index">04 / 05</span><h3>Can you help with SEO and analytics?</h3><p>Yes. I handle page-speed optimisation and technical SEO — redirects, schema, XML sitemaps and Google Search Console fixes — plus Google Ads tracking.</p><a href="#contact" class="faq-answer-link">Discuss your project <span aria-hidden="true">↗</span></a></div><div class="faq-answer" role="tabpanel" id="faq-answer-4" aria-labelledby="faq-tab-4" tabindex="0" hidden><span class="faq-answer-index">05 / 05</span><h3>Where are you based?</h3><p>I'm based in Kuala Lumpur, Malaysia, and currently work as a Senior Web Developer at Sterrific. I've delivered websites for clients in Malaysia and Singapore.</p><a href="#contact" class="faq-answer-link">Discuss your project <span aria-hidden="true">↗</span></a></div></div>
     </div>
   </section>
 
@@ -839,6 +833,6 @@
 <script src="true-focus.js" defer></script>
 <script src="gradual-blur.js" defer></script>
 <script src="drift-wall.js?v=2" defer></script>
-<script src="script.js?v=20261104-blue-all" defer></script>
+<script src="script.js?v=20261104-timeline-hex" defer></script>
 </body>
 </html>
