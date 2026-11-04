@@ -282,33 +282,6 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
   });
 })();
 
-// TextLoop band between FAQ and Contact
-(() => {
-  const band = document.getElementById('loopBand');
-  if (!band || !window.TextLoop) return;
-  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#145cff';
-  const small = window.matchMedia('(max-width: 640px)').matches;
-  window.TextLoop(band, {
-    text: 'FAIQ & WEB DEV',
-    shape: 'wave',
-    fitWidth: true,           // full-width band, sizes below are real pixels
-    period: small ? 220 : 340,
-    speed: 60,
-    direction: 'forward',
-    separator: '✦',
-    curviness: small ? 10 : 14,
-    fontSize: small ? 15 : 20,
-    fontWeight: 700,
-    letterSpacing: 2,
-    uppercase: true,
-    color: '#060c1b',
-    ribbon: true,
-    ribbonColor: accent,
-    ribbonWidth: small ? 30 : 40,
-    pauseOnHover: true
-  });
-})();
-
 // Hero title — TechText canvas effect
 (() => {
   const title = document.getElementById('heroTitle');
@@ -537,4 +510,45 @@ document.getElementById('year').textContent = new Date().getFullYear();
   }
   connectTabs('#experience', '.career-stop', '.career-detail', true);
   connectTabs('#faq', '.faq-topic', '.faq-answer', true);
+})();
+
+// A lightweight scroll-linked flight from Earth (footer) to orbit (hero).
+(() => {
+  const rocket = document.querySelector('.journey-rocket');
+  if (!rocket) return;
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  let scheduled = false;
+  function draw() {
+    scheduled = false;
+    const range = Math.max(1, document.documentElement.scrollHeight - innerHeight);
+    const progress = Math.min(1, Math.max(0, scrollY / range));
+    rocket.style.setProperty('--flight-y', (15 + progress * 65).toFixed(2) + 'vh');
+    rocket.style.opacity = reduce.matches ? '.4' : '.85';
+  }
+  addEventListener('scroll', () => {
+    if (!scheduled) { scheduled = true; requestAnimationFrame(draw); }
+  }, {passive:true});
+  addEventListener('resize', draw);
+  reduce.addEventListener('change', draw);
+  draw();
+})();
+
+/* Reveal section content once, with content visible by default if setup fails. */
+(() => {
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches || !('IntersectionObserver' in window)) return;
+  const elements = [...document.querySelectorAll('#main > section:not(#top) > h2, #main > section > .career-intro, #main > section > .faq-intro, #main > section > .selected-grid, #main > section > .play-grid, #main > section > .service-grid, #main > section > .career-scroll, #main > section > .faq-explorer, #about > .about-panel, #contact > .contact-body, footer > .footer-panel')];
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0, rootMargin:'0px 0px -35px 0px'});
+  elements.forEach(el => {
+    el.classList.add('journey-reveal');
+    if (el.getBoundingClientRect().top < innerHeight) el.classList.add('is-revealed');
+    observer.observe(el);
+  });
+  document.documentElement.classList.add('section-reveal-ready');
 })();
