@@ -1568,3 +1568,52 @@ footer .footer-panel { background:none; border:0; border-radius:0; padding:72px 
   .career-detail:not([hidden]), .faq-answer:not([hidden]) { animation:none; }
   .career-node::after, .career-node::before, .career-company, .faq-topic, .faq-contact-node { transition:none; }
 }
+
+/* More Projects: vertical reel with a sharp central preview and curved neighbours. */
+#main > #more-work { padding-bottom:100px; background:radial-gradient(ellipse at 20% 50%,#123b7044,transparent 65%),#05080e; }
+.project-reel { display:grid; grid-template-columns:minmax(0,1.4fr) minmax(0,1fr); gap:65px; align-items:center; margin-top:42px; }
+.reel-stage { height:660px; min-width:0; position:relative; perspective:1100px; overflow:hidden; cursor:grab; touch-action:pan-y; user-select:none; border-radius:20px; -webkit-mask-image:linear-gradient(transparent,#000 15%,#000 85%,transparent); mask-image:linear-gradient(transparent,#000 15%,#000 85%,transparent); }
+.reel-stage.is-dragging { cursor:grabbing; }
+.reel-stage:focus-visible { outline:2px solid #72dcff; outline-offset:3px; }
+#more-work .project-grid.reel-track { display:block; margin:0; position:absolute; inset:0; transform-style:preserve-3d; }
+#more-work .reel-slide {
+  position:absolute; left:50%; top:50%; width:86%; height:315px; padding:0;
+  border-radius:18px; border:1px solid #78dfff44; overflow:hidden; background:#0d1b30;
+  transform:translate(-50%,-50%) translateY(calc(var(--reel-offset) * 235px)) translateZ(calc(var(--reel-depth) * -130px)) rotateX(calc(var(--reel-offset) * -32deg));
+  transform-origin:center; backface-visibility:hidden;
+  transition:transform .75s cubic-bezier(.2,.75,.2,1),opacity .6s,box-shadow .3s;
+  box-shadow:0 20px 50px -25px #000; pointer-events:none;
+}
+#more-work .reel-slide.is-current { box-shadow:0 0 50px -20px #4bbfff77,0 25px 55px -25px #000; }
+#more-work .reel-slide > .project-body { display:none; }
+#more-work .reel-slide .mockup { margin:0; width:100%; height:100%; border-radius:0; display:flex; flex-direction:column; }
+#more-work .reel-slide .mockup-screen { aspect-ratio:auto; flex:1; padding:24px; }
+#more-work .reel-slide .mockup-hero { flex:1; }
+#more-work .reel-slide .mockup-icon { scale:1.4; }
+#more-work .reel-slide .mockup-title { font-size:13px; color:#c6d9ec; }
+.reel-caption .project-body { padding:0; }
+#more-work .reel-caption .project-tag { color:#83dfff; font-size:11px; letter-spacing:.1em; }
+#more-work .reel-caption h3 { font-size:clamp(30px,3.6vw,48px); line-height:1.1; margin:17px 0 20px; letter-spacing:-.045em; }
+#more-work .reel-caption .project-desc { color:#b3c5db; font-size:16px; line-height:1.8; }
+.reel-caption .project-link { display:inline-flex; align-items:center; gap:14px; align-self:start; margin-top:25px; padding-top:0; font-size:14px; color:#98e7ff; border-bottom:1px solid #72dcff55; padding-bottom:5px; }
+.reel-controls { display:flex; gap:12px; align-items:center; margin-top:34px; }
+.reel-controls button { appearance:none; cursor:pointer; font:inherit; color:#c9eaff; border:1px solid #72dcff44; background:#0c1c31; border-radius:50%; width:44px; height:44px; transition:background .2s,color .2s; }
+.reel-controls button:hover { color:#06172b; background:#9aeaff; }
+.reel-controls button:focus-visible { outline:2px solid #9aeaff; outline-offset:4px; }
+.reel-controls .reel-pause { width:auto; padding:0 17px; border-radius:999px; font-size:12px; margin-left:7px; }
+.reel-count { font-size:12px; font-variant-numeric:tabular-nums; color:#aac3df; min-width:55px; text-align:center; }
+.reel-picker-label { display:block; margin-top:30px; color:#7e9cb9; font-size:11px; }
+.reel-picker { display:block; margin-top:8px; width:100%; max-width:360px; padding:12px 38px 12px 12px; background:#0c1829; border:1px solid #72dcff33; color:#d5edff; border-radius:10px; font:inherit; font-size:13px; }
+.reel-hint { color:#7691ad; font-size:11px; margin-top:14px; line-height:1.8; }
+.reel-caption-enter { animation:topic-enter .4s ease both; }
+@media(max-width:1000px) { .project-reel { gap:30px; } .reel-stage { height:580px; } #more-work .reel-slide { height:275px; } }
+@media(max-width:700px) {
+  #main > #more-work { padding-bottom:64px; }
+  .project-reel { grid-template-columns:1fr; gap:22px; margin-top:22px; }
+  .reel-stage { height:440px; }
+  #more-work .reel-slide { width:90%; height:230px; }
+  .reel-info { padding:0 4px; }
+  #more-work .reel-caption h3 { font-size:32px; }
+  .reel-controls { margin-top:24px; }
+}
+@media(prefers-reduced-motion:reduce) { #more-work .reel-slide { transition:none; } .reel-caption-enter { animation:none; } }
