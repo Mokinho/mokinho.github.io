@@ -1748,3 +1748,43 @@ footer.landscape-footer .footer-logo { grid-column:1; grid-row:1; display:flex; 
 footer.landscape-footer .footer-logo img { display:block; width:52px; height:44px; object-fit:contain; margin:0; filter:brightness(0); }
 footer.landscape-footer .footer-wordmark { grid-column:2; grid-row:1; font-size:22px; }
 footer.landscape-footer .footer-brand > p { grid-column:1 / -1; }
+
+/* Consistent, compact vertical rhythm across the connected page. */
+body.cosmic-journey { --section-space:40px; }
+#main > #top, #main > #work, #main > #playground, #main > #about,
+#main > .stats, #main > #skills, #main > #more-work, #main > #experience,
+#main > #faq, #main > #contact {
+  padding-top:var(--section-space); padding-bottom:var(--section-space); margin-top:0; margin-bottom:0;
+}
+#main > #top { min-height:0; }
+#top .hero-tray { margin-top:40px; padding-bottom:0; }
+#top .tray-card { min-height:175px; padding-top:18px; padding-bottom:18px; }
+#main > .stats .stat { padding-top:18px; padding-bottom:18px; }
+#about .about-media.profile-portrait { margin-top:0; margin-bottom:0; }
+#work .selected-grid, #playground .play-grid { margin-top:30px; }
+#skills .service-grid { margin-top:26px; }
+#experience .career-scroll { margin-top:26px; padding-bottom:10px; }
+#experience .career-panels { margin-top:18px; min-height:0; }
+#experience .career-detail { padding-top:24px; }
+#faq .faq-explorer { margin-top:16px; }
+#faq .faq-answers { min-height:0; }
+#more-work .project-reel { margin-top:24px; }
+#more-work .reel-stage { height:560px; }
+#contact .contact-dock { margin-top:32px; }
+footer.shell.landscape-footer { padding-top:var(--section-space); }
+.section-connector svg { width:86px; height:92px; top:-43px; }
+.section-connector.connector-1 svg, .section-connector.connector-2 svg { width:76px; height:82px; top:-38px; }
+@media(max-width:700px) {
+  body.cosmic-journey { --section-space:28px; }
+  #top .hero-tray { margin-top:28px; }
+  #top .tray-card { min-height:0; padding-top:20px; padding-bottom:20px; }
+  #main > .stats .stat { padding-top:18px; padding-bottom:18px; }
+  #work .selected-grid, #playground .play-grid { margin-top:26px; }
+  #skills .service-grid { margin-top:20px; padding-top:20px; }
+  #more-work .reel-stage { height:400px; }
+  #experience .career-panels { min-height:0; }
+  #experience .career-detail { gap:16px; }
+  #faq .faq-explorer { margin-top:22px; }
+  #faq .faq-answers { min-height:0; }
+  .section-connector svg, .section-connector.connector-1 svg, .section-connector.connector-2 svg { width:58px; height:62px; top:-28px; }
+}
