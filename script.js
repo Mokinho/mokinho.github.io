@@ -376,33 +376,128 @@ document.getElementById('year').textContent = new Date().getFullYear();
   });
 })();
 
-// DriftWall — "Client websites & landing pages" cards drift on a tilted 3D wall
+// More Projects: original vertical reel, adapted to the existing portfolio.
 (() => {
   const grid = document.querySelector('#more-work .project-grid');
-  if (!grid || !window.DriftWall) return;
-  window.DriftWall(grid, {
-    itemSelector: '.project-card',
-    columns: 5,
-    tileWidth: 260,
-    gap: 18,
-    tilt: 16,
-    turn: -14,
-    perspective: 1200,
-    depth: 120,
-    speed: 42,
-    direction: 'up',
-    variance: 0.45,
-    parallax: 0.6,
-    lift: 64,
-    fade: 0.6,
-    dim: 0.55,
-    overlayColor: '#000000',
-    ariaLabel: 'Client websites and landing pages',
-    disableBelow: 640, // mobile keeps the original stacked card grid
-    responsive: [
-      { maxWidth: 900, columns: 4, tileWidth: 240 }
-    ]
+  if (!grid) return;
+  const cards = [...grid.querySelectorAll(':scope > .project-card')];
+  if (!cards.length) return;
+  const section = grid.closest('section');
+  const root = document.createElement('div');
+  root.className = 'project-reel';
+  root.setAttribute('role', 'region');
+  root.setAttribute('aria-label', 'Project reel. Use Previous and Next, drag, or use the arrow keys.');
+  const stage = document.createElement('div');
+  stage.className = 'reel-stage';
+  stage.tabIndex = 0;
+  stage.setAttribute('aria-label', 'Project preview. Arrow keys change project; Space pauses autoplay.');
+  const caption = document.createElement('div');
+  caption.className = 'reel-caption';
+  const info = document.createElement('div');
+  info.className = 'reel-info';
+  const controls = document.createElement('div');
+  controls.className = 'reel-controls';
+  controls.innerHTML = '<button type="button" class="reel-prev" aria-label="Previous project">↑</button><span class="reel-count"></span><button type="button" class="reel-next" aria-label="Next project">↓</button><button type="button" class="reel-pause" aria-label="Pause project autoplay" aria-pressed="false">Pause</button>';
+  const chooseLabel = document.createElement('label');
+  chooseLabel.className = 'reel-picker-label';
+  chooseLabel.textContent = 'Jump to a project';
+  const picker = document.createElement('select');
+  picker.className = 'reel-picker';
+  picker.setAttribute('aria-label', 'Choose a project');
+  cards.forEach((card, i) => {
+    const option = document.createElement('option');
+    option.value = i;
+    option.textContent = card.querySelector('h3').textContent;
+    picker.appendChild(option);
+    card.classList.remove('reveal', 'in-view');
+    card.classList.add('reel-slide');
+    card.setAttribute('role','group');
+    card.setAttribute('aria-label', option.textContent);
   });
+  chooseLabel.appendChild(picker);
+  const hint = document.createElement('p');
+  hint.className = 'reel-hint';
+  hint.textContent = 'Drag to browse · Swipe sideways on mobile · Arrow keys to explore';
+  grid.before(root);
+  stage.appendChild(grid);
+  info.append(caption, controls, chooseLabel, hint);
+  root.append(stage, info);
+  grid.classList.add('reel-track');
+  let index = 0, paused = matchMedia('(prefers-reduced-motion: reduce)').matches, visible = false, hovered = false, dragging = null, focusWithin = false;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  function go(value) {
+    index = (value + cards.length) % cards.length;
+    cards.forEach((card, i) => {
+      let delta = (i - index + cards.length) % cards.length;
+      if (delta > cards.length / 2) delta -= cards.length;
+      card.style.setProperty('--reel-offset', delta);
+      card.style.setProperty('--reel-depth', Math.abs(delta));
+      card.style.opacity = Math.abs(delta) <= 2 ? (delta === 0 ? 1 : .35) : 0;
+      card.style.zIndex = 10 - Math.abs(delta);
+      card.style.visibility = Math.abs(delta) <= 2 ? 'visible' : 'hidden';
+      card.setAttribute('aria-hidden', String(i !== index));
+      card.inert = i !== index;
+      card.classList.toggle('is-current', i === index);
+    });
+    caption.replaceChildren(cards[index].querySelector('.project-body').cloneNode(true));
+    caption.classList.remove('reel-caption-enter');
+    void caption.offsetWidth;
+    caption.classList.add('reel-caption-enter');
+    controls.querySelector('.reel-count').textContent = String(index + 1).padStart(2,'0') + ' / ' + String(cards.length).padStart(2,'0');
+    picker.value = index;
+  }
+  function togglePause() {
+    paused = !paused;
+    const button = controls.querySelector('.reel-pause');
+    button.textContent = paused ? 'Play' : 'Pause';
+    button.setAttribute('aria-label', paused ? 'Play project autoplay' : 'Pause project autoplay');
+    button.setAttribute('aria-pressed', String(paused));
+  }
+  controls.querySelector('.reel-prev').addEventListener('click', () => go(index - 1));
+  controls.querySelector('.reel-next').addEventListener('click', () => go(index + 1));
+  controls.querySelector('.reel-pause').addEventListener('click', togglePause);
+  picker.addEventListener('change', () => go(Number(picker.value)));
+  stage.addEventListener('keydown', e => {
+    if (e.key === 'ArrowDown' || e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
+    else if (e.key === 'Home') { e.preventDefault(); go(0); }
+    else if (e.key === 'End') { e.preventDefault(); go(cards.length - 1); }
+    else if (e.key === ' ') { e.preventDefault(); togglePause(); }
+  });
+  stage.addEventListener('pointerdown', e => {
+    if (e.button !== 0) return;
+    dragging = { x:e.clientX, y:e.clientY, time:performance.now(), touch:e.pointerType==='touch' };
+    stage.setPointerCapture(e.pointerId);
+    stage.classList.add('is-dragging');
+  });
+  const finishDrag = e => {
+    if (!dragging) return;
+    const distance = dragging.touch ? dragging.x - e.clientX : dragging.y - e.clientY;
+    const elapsed = Math.max(1, performance.now() - dragging.time);
+    if (Math.abs(distance) > 35) {
+      const steps = Math.min(4, Math.max(1, Math.round(Math.abs(distance) / 140 + Math.abs(distance) / elapsed * .4)));
+      go(index + Math.sign(distance) * steps);
+    }
+    dragging = null;
+    stage.classList.remove('is-dragging');
+  };
+  stage.addEventListener('pointerup', finishDrag);
+  stage.addEventListener('pointercancel', () => { dragging = null; stage.classList.remove('is-dragging'); });
+  root.addEventListener('pointerenter', () => { hovered = true; });
+  root.addEventListener('pointerleave', () => { hovered = false; });
+  root.addEventListener('focusin', () => { focusWithin = true; });
+  root.addEventListener('focusout', e => { focusWithin = root.contains(e.relatedTarget); });
+  new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; }, {threshold:.15}).observe(root);
+  setInterval(() => {
+    if (visible && !paused && !hovered && !focusWithin && !dragging && !document.hidden && !reduced.matches) go(index + 1);
+  }, 5000);
+  if (paused) {
+    const button = controls.querySelector('.reel-pause');
+    button.textContent = 'Play';
+    button.setAttribute('aria-label', 'Play project autoplay');
+    button.setAttribute('aria-pressed', 'true');
+  }
+  go(0);
 })();
 
 /* Accessible career milestones and hexagonal FAQ topic navigation. */
