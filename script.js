@@ -404,3 +404,42 @@ document.getElementById('year').textContent = new Date().getFullYear();
     ]
   });
 })();
+
+/* Accessible career milestones and hexagonal FAQ topic navigation. */
+(() => {
+  function connectTabs(rootSelector, tabSelector, panelSelector, hover) {
+    const root = document.querySelector(rootSelector);
+    if (!root) return;
+    const tabs = [...root.querySelectorAll(tabSelector)];
+    const panels = [...root.querySelectorAll(panelSelector)];
+    if (!tabs.length || tabs.length !== panels.length) return;
+    function activate(index, focus) {
+      tabs.forEach((tab, i) => {
+        const active = i === index;
+        tab.classList.toggle('is-active', active);
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+        panels[i].hidden = !active;
+      });
+      if (focus) tabs[index].focus();
+    }
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => activate(index, false));
+      if (hover) tab.addEventListener('pointerenter', e => {
+        if (e.pointerType === 'mouse' && !root.contains(document.activeElement)) activate(index, false);
+      });
+      tab.addEventListener('keydown', event => {
+        let next = index;
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % tabs.length;
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
+        else if (event.key === 'Home') next = 0;
+        else if (event.key === 'End') next = tabs.length - 1;
+        else return;
+        event.preventDefault();
+        activate(next, true);
+      });
+    });
+  }
+  connectTabs('#experience', '.career-stop', '.career-detail', true);
+  connectTabs('#faq', '.faq-topic', '.faq-answer', true);
+})();
