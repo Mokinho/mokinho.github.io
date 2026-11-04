@@ -62,7 +62,7 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
   const ctx = canvas.getContext('2d');
   if (!ctx) return;
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const colors = ['232,80,2', '241,96,1', '217,195,171', '255,255,255'];
+  const colors = ['20,92,255', '53,121,255', '114,220,255', '255,255,255'];
   let w, h, dpr, dots = [], raf = 0, visible = true;
 
   const resize = () => {
@@ -154,7 +154,7 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
   const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const links = [...navLinks.querySelectorAll('a')];
   const items = links.map(a => ({ label: (a.querySelector('.pill-label') || a).textContent.trim(), href: a.getAttribute('href') }));
-  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#e85002';
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#145cff';
 
   const overlay = document.createElement('div');
   overlay.className = 'nav-wheel';
@@ -181,7 +181,7 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
   const wheel = window.OptionWheel(overlay.querySelector('.nav-wheel-track'), {
     items,
     defaultSelected: 0,
-    textColor: '#8f857d',
+    textColor: '#939eac',
     activeColor: accent,
     side: 'left',
     fontSize: 2.6,
@@ -286,7 +286,7 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
 (() => {
   const band = document.getElementById('loopBand');
   if (!band || !window.TextLoop) return;
-  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#e85002';
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#145cff';
   const small = window.matchMedia('(max-width: 640px)').matches;
   window.TextLoop(band, {
     text: 'FAIQ & WEB DEV',
@@ -301,7 +301,7 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
     fontWeight: 700,
     letterSpacing: 2,
     uppercase: true,
-    color: '#120b07',
+    color: '#060c1b',
     ribbon: true,
     ribbonColor: accent,
     ribbonWidth: small ? 30 : 40,
@@ -315,7 +315,7 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
   const fx = title && title.querySelector('.hero-title-fx');
   if (!fx || !window.TechText) return;
   const css = getComputedStyle(document.documentElement);
-  const accent = css.getPropertyValue('--accent').trim() || '#e85002';
+  const accent = css.getPropertyValue('--accent').trim() || '#145cff';
   const blue = css.getPropertyValue('--blue').trim() || '#8ec5ff';
   const tt = window.TechText(fx, {
     segments: [
@@ -348,7 +348,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
 (() => {
   const el = document.getElementById('helloFocus');
   if (!el || !window.TrueFocus) return;
-  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#e85002';
+  const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim() || '#145cff';
   window.TrueFocus(el, {
     sentence: '“Hello, World!”',
     blurAmount: 4,
