@@ -1665,3 +1665,26 @@ footer.landscape-footer .to-top:hover { color:#145cff; }
   .footer-landscape svg { width:180%; max-width:none; margin-left:-45%; }
 }
 @media(prefers-reduced-motion:reduce) { footer.landscape-footer li a { transition:none; } }
+
+/* Hand-drawn arrows carry the page journey from hero through to footer. */
+.section-connector {
+  height:0; min-height:0; width:100%; position:relative; z-index:5; flex-shrink:0; pointer-events:none;
+}
+.section-connector svg {
+  position:absolute; top:-54px; right:clamp(22px,5vw,100px); width:115px; height:115px; overflow:visible;
+  color:#347cff; filter:drop-shadow(0 3px 12px #145cff22);
+}
+.section-connector path { stroke:currentColor; stroke-width:7; stroke-linecap:round; stroke-linejoin:round; }
+.section-connector.connector-1 svg { left:clamp(20px,4vw,80px); right:auto; color:#b3ecff; transform:scaleX(-1) rotate(-5deg); width:94px; height:94px; top:-45px; }
+.section-connector.connector-2 svg { color:#f0faff; width:90px; height:90px; transform:rotate(6deg); top:-43px; }
+.section-connector.connector-2 path { stroke-width:5.5; }
+@media(min-width:1700px) {
+  .section-connector svg { right:max(65px,calc((100vw - 1320px) / 4)); }
+  .section-connector.connector-1 svg { left:max(45px,calc((100vw - 1320px) / 4)); }
+}
+@media(max-width:700px) {
+  .section-connector svg { width:70px; height:75px; top:-34px; right:12px; }
+  .section-connector.connector-1 svg { width:64px; height:70px; top:-32px; left:auto; right:16px; }
+  .section-connector.connector-2 svg { width:62px; height:68px; top:-32px; right:14px; }
+  .section-connector path { stroke-width:6; }
+}
