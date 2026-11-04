@@ -22,7 +22,7 @@
   /* per-section accent: orange by default, .tone-blue sections switch to blue */
   --tone: var(--sub);
   --tone-rgb: 20, 92, 255;
-  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-display: 'Archivo', system-ui, sans-serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --shell: 1320px;
   --radius: 26px;
@@ -45,7 +45,7 @@ body {
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 ul, ol { list-style: none; }
-h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; font-stretch: normal; color: var(--heading); letter-spacing: -.02em; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; font-stretch: 125%; color: var(--heading); letter-spacing: -.02em; }
 
 .shell { width: 100%; max-width: calc(var(--shell) + 48px); margin: 0 auto; padding: 0 24px; }
 
@@ -184,7 +184,7 @@ main { display: flex; flex-direction: column; gap: var(--gap); }
 .hero-stage { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; }
 .hero h1 {
   position: relative; z-index: 1; width: 100%; color: #fff;
-  font-weight: 700; text-transform: uppercase;
+  font-weight: 900; text-transform: uppercase;
   font-size: clamp(38px, 8vw, 116px); line-height: .92; letter-spacing: -.03em;
   margin: 22px 0 18px;
 }
@@ -234,7 +234,7 @@ main { display: flex; flex-direction: column; gap: var(--gap); }
 .gc-icon { display: grid; place-items: center; background: var(--accent); }
 .gc-icon svg { width: 56%; height: 56%; fill: none; stroke: #fff; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 .gc-icon circle { fill: #fff; stroke: none; }
-.glass-card strong { font-family: var(--font-display); font-stretch: normal; font-weight: 700; font-size: 14px; color: #fff; }
+.glass-card strong { font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: 14px; color: #fff; }
 .glass-card > span:not(.gc-icon) { font-size: 11.5px; color: rgba(255,255,255,.7); }
 .gc-1 { left: 19%; top: 38%; transform: rotate(-8deg); }
 .gc-2 { right: 17%; top: 16%; transform: rotate(7deg); animation-delay: -3s; }
@@ -254,7 +254,7 @@ main { display: flex; flex-direction: column; gap: var(--gap); }
 }
 .spin-badge:hover { background: var(--accent-hover); transform: scale(1.06); }
 .spin-badge > svg:first-child { position: absolute; inset: 0; width: 100%; height: 100%; animation: spin 16s linear infinite; }
-.spin-badge text { font-family: var(--font-display); font-stretch: normal; font-weight: 700; font-size: 19px; letter-spacing: .06em; fill: var(--ink); }
+.spin-badge text { font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: 19px; letter-spacing: .06em; fill: var(--ink); }
 .badge-mark { width: 38%; overflow: visible; }
 .badge-mark path { stroke: var(--ink); stroke-width: 6; }
 
@@ -270,19 +270,19 @@ main { display: flex; flex-direction: column; gap: var(--gap); }
   padding: 26px 22px 22px; text-align: center; min-height: 230px;
   display: flex; flex-direction: column; align-items: center;
 }
-.tray-card h3 { font-weight: 700; text-transform: uppercase; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.02; letter-spacing: -.02em; }
+.tray-card h3 { font-weight: 900; text-transform: uppercase; font-size: clamp(18px, 1.8vw, 24px); line-height: 1.02; letter-spacing: -.02em; }
 .tray-card p { color: var(--muted); font-size: 13.5px; margin-top: 8px; }
 .tray-widget { margin-top: auto; padding-top: 22px; display: flex; align-items: center; justify-content: center; gap: 8px; flex-wrap: wrap; }
 .tw-chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: 16px; background: var(--accent-deep); color: #fff; font-size: 12.5px; font-weight: 600; transform: rotate(-4deg); }
 .tw-chip img { width: 28px; height: 28px; border-radius: 50%; border: 2px solid #fff; }
-.tw-pill { padding: 8px 14px; border-radius: 999px; background: var(--accent); color: var(--ink); font-family: var(--font-display); font-stretch: normal; font-weight: 700; font-size: 13px; }
+.tw-pill { padding: 8px 14px; border-radius: 999px; background: var(--accent); color: var(--ink); font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: 13px; }
 .tw-field { display: inline-flex; align-items: center; gap: 10px; padding: 6px 6px 6px 18px; border-radius: 999px; background: var(--ink); border: 1px solid rgba(255,255,255,.14); }
 .tw-field em, .tw-bubble em { font-style: normal; font-size: 12.5px; color: var(--body); }
-.tw-field b { padding: 9px 16px; border-radius: 999px; background: var(--accent); color: var(--ink); font-family: var(--font-display); font-stretch: normal; font-weight: 700; font-size: 14px; }
+.tw-field b { padding: 9px 16px; border-radius: 999px; background: var(--accent); color: var(--ink); font-family: var(--font-display); font-stretch: 125%; font-weight: 800; font-size: 14px; }
 .tw-bubble { position: relative; display: inline-flex; flex-direction: column; align-items: center; padding: 10px 26px 12px; border-radius: 22px; background: var(--accent); }
 .tw-bubble::after { content: ''; position: absolute; left: 22px; bottom: -8px; width: 18px; height: 18px; background: var(--accent); border-radius: 0 0 0 18px; transform: skewX(-20deg); }
 .tw-bubble em { color: rgba(6,12,27,.75); font-size: 11px; text-transform: uppercase; letter-spacing: .08em; }
-.tw-bubble b { font-family: var(--font-display); font-stretch: normal; font-weight: 700; font-size: 26px; color: var(--ink); line-height: 1.05; }
+.tw-bubble b { font-family: var(--font-display); font-stretch: 125%; font-weight: 900; font-size: 26px; color: var(--ink); line-height: 1.05; }
 .tray-arrow { width: 46px; overflow: visible; }
 .tray-arrow path { stroke: #fff; stroke-width: 4; }
 
@@ -1217,7 +1217,7 @@ main > .stats { background:#0a101c; border:1px solid rgba(114,220,255,.2); borde
   content:""; position:absolute; width:2px; height:14px; top:9px; left:calc(50% + 3px);
   inset:auto; top:9px; left:calc(50% + 3px); background:#62707c; rotate:-20deg; z-index:2;
 }
-#skills .service-card .num { font-size:32px; line-height:1.2; color:#1655b8; font-weight: 700; }
+#skills .service-card .num { font-size:32px; line-height:1.2; color:#1655b8; font-weight:900; }
 #skills .service-card h3 { color:#142238; font-size:21px; line-height:1.2; margin:12px 0 14px; }
 #skills .service-card li { color:#344356; font-size:14px; line-height:1.55; }
 #skills .service-card li::before { background:#5074a0; width:5px; height:5px; }
@@ -1632,7 +1632,7 @@ footer.landscape-footer .footer-panel {
 }
 footer.landscape-footer .footer-cols { grid-template-columns:1.5fr .8fr .8fr 1.05fr; gap:45px; }
 footer.landscape-footer .footer-brand > img { display:none; }
-.footer-wordmark { display:block; font-family:var(--font-display); font-size:24px; font-weight: 700; letter-spacing:-.055em; line-height:1.2; color:#0c223c; }
+.footer-wordmark { display:block; font-family:var(--font-display); font-size:24px; font-weight:800; letter-spacing:-.055em; line-height:1.2; color:#0c223c; }
 .footer-wordmark > span { color:#145cff; }
 footer.landscape-footer .footer-brand p { color:#597087; font-size:13px; max-width:295px; line-height:1.8; margin-top:18px; }
 footer.landscape-footer h4 { color:#0c294c; font-size:11px; letter-spacing:.07em; margin-bottom:13px; }
@@ -1789,13 +1789,5 @@ footer.shell.landscape-footer { padding-top:var(--section-space); }
   .section-connector svg, .section-connector.connector-1 svg, .section-connector.connector-2 svg { width:58px; height:62px; top:-28px; }
 }
 
-/* Portfolio typography: Space Grotesk headings, DM Sans reading and controls. */
-:root { --font-display:'Space Grotesk',system-ui,sans-serif; --font-body:'DM Sans',system-ui,sans-serif; }
-h1,h2,h3,h4 { font-family:var(--font-display); font-stretch:normal; font-weight:700; }
-button,input,select,textarea { font-family:var(--font-body); }
-.hero-title, .hero h1 { font-weight:700; letter-spacing:-.045em; }
-.hero .hero-sub { font-size:17px; line-height:1.75; }
-#about .about-panel p:not(.pill), .career-description, .faq-answer > p { font-size:16px; line-height:1.8; }
-#skills .service-card h3 { font-weight:600; letter-spacing:-.025em; }
-#work .selected-caption h3, .portrait-heading h3, .footer-wordmark { font-family:var(--font-display); }
-@media(max-width:700px) { .hero .hero-sub { font-size:16px; } }
+/* More breathing room between sections on mobile. */
+@media(max-width:700px) { body.cosmic-journey { --section-space:40px; } }
