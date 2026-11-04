@@ -1741,3 +1741,10 @@ footer.landscape-footer .footer-panel { background:#f2f9fff5; }
   .contact-planet, .contact-satellite, .rocket-flame { animation:none; }
   .section-reveal-ready .journey-reveal { opacity:1; transform:none; transition:none; }
 }
+
+/* Black logo edition on the footer's light panel. */
+footer.landscape-footer .footer-brand { display:grid; grid-template-columns:52px minmax(0,1fr); align-content:start; align-items:center; column-gap:12px; }
+footer.landscape-footer .footer-logo { grid-column:1; grid-row:1; display:flex; align-items:center; justify-content:flex-start; width:52px; height:44px; }
+footer.landscape-footer .footer-logo img { display:block; width:52px; height:44px; object-fit:contain; margin:0; filter:brightness(0); }
+footer.landscape-footer .footer-wordmark { grid-column:2; grid-row:1; font-size:22px; }
+footer.landscape-footer .footer-brand > p { grid-column:1 / -1; }
