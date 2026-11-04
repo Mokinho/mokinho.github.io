@@ -1487,3 +1487,84 @@ footer .footer-panel { background:none; border:0; border-radius:0; padding:72px 
   .selected-photo img, .selected-arrow, .selected-details summary span { transition:none; }
   .selected-media:hover .selected-photo img { transform:none; }
 }
+
+/* Career milestones: a connected, interactive blue-to-cyan timeline. */
+#main > #experience, #main > #faq { display:block; }
+#experience > h2, #faq > h2 { max-width:900px; font-size:clamp(34px,4vw,56px); }
+.career-intro, .faq-intro { max-width:670px; margin-top:18px; color:#aabbcf; font-size:15px; line-height:1.75; }
+.career-scroll { overflow-x:auto; padding:12px 4px 20px; margin:42px -4px 0; scrollbar-color:#2666be #0c182a; scrollbar-width:thin; }
+.career-track { position:relative; display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); min-width:850px; isolation:isolate; }
+.career-track::before { content:""; position:absolute; top:55px; height:46px; left:0; right:0; z-index:-1; border-radius:999px; background:linear-gradient(90deg,#1736c7,#225dec 30%,#258ff3 58%,#40c7e7 80%,#9aefe5); box-shadow:0 0 40px #145cff22; }
+.career-stop { position:relative; appearance:none; border:0; color:#adbed4; background:none; padding:0 15px 8px; text-align:left; font:inherit; cursor:pointer; min-height:210px; }
+.career-date { display:block; font-size:11px; height:50px; color:#99abc1; }
+.career-node { display:block; height:58px; position:relative; }
+.career-node::before { content:""; position:absolute; left:0; top:0; width:1px; height:70px; background:#d0f6ff66; transition:height .3s,background .3s; }
+.career-node::after { content:""; position:absolute; left:-4px; top:0; width:9px; height:9px; border-radius:50%; background:#d4f6ff; border:2px solid #0a172e; transition:box-shadow .3s,scale .3s; }
+.career-company { display:inline-block; margin-top:24px; padding:7px 11px; background:#12213a; border:1px solid #7adfff22; border-radius:9px; color:#d4eaff; font-size:12px; font-weight:600; transition:background .25s,color .25s; }
+.career-role { display:block; margin-top:10px; font-size:11px; line-height:1.6; max-width:180px; }
+.career-stop:hover .career-node::after, .career-stop.is-active .career-node::after { box-shadow:0 0 0 6px #72dcff22,0 0 20px #72dcffbb; scale:1.3; }
+.career-stop:hover .career-company, .career-stop.is-active .career-company { background:#c6f3ff; color:#081a35; }
+.career-stop.is-active .career-date { color:#c6f3ff; }
+.career-stop:focus-visible { outline:2px solid #72dcff; outline-offset:-2px; border-radius:10px; }
+.career-panels { margin-top:28px; min-height:210px; }
+.career-detail { display:grid; grid-template-columns:1fr 1.2fr; gap:60px; padding:30px 0 0; border-top:1px solid #72dcff33; }
+.career-detail[hidden], .faq-answer[hidden] { display:none; }
+.career-detail:not([hidden]), .faq-answer:not([hidden]) { animation:topic-enter .35s ease both; }
+.career-detail-date { color:#87dfff; font-size:12px; }
+#experience .career-detail h3 { font-size:26px; line-height:1.3; margin:10px 0 6px; }
+.career-org { color:#bacce0; font-size:14px; }
+.career-description { font-size:15px; color:#afc2d8; line-height:1.85; }
+/* FAQ hexagon: topic navigation, no accordion. */
+#main > #faq { background:radial-gradient(ellipse at 20% 65%,#102c5266,transparent 58%),#060a11; }
+.faq-explorer { display:grid; grid-template-columns:minmax(0,1.15fr) minmax(0,1fr); gap:65px; align-items:center; margin-top:24px; }
+.faq-orbit { position:relative; width:100%; aspect-ratio:1; max-width:620px; margin:auto; }
+.faq-hex-grid { position:absolute; inset:0; width:100%; height:100%; overflow:visible; }
+.faq-hex-grid polygon { fill:#145cff06; stroke:#72dcff33; stroke-width:1.2; }
+.faq-hex-grid polygon:nth-child(2) { fill:#145cff09; }
+.faq-hex-grid polygon:nth-child(3) { fill:#145cff0e; }
+.faq-hex-grid polygon:nth-child(4) { fill:#145cff1a; stroke:#72dcff66; }
+.faq-hex-grid path { stroke:#72dcff17; stroke-width:1; fill:none; }
+.faq-orbit-label { position:absolute; inset:30%; display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; pointer-events:none; }
+.faq-orbit-label > span { color:#78cfe9; font-size:8px; letter-spacing:.14em; white-space:nowrap; }
+.faq-orbit-label strong { color:#e5f8ff; font-size:clamp(28px,3.6vw,46px); line-height:1.05; letter-spacing:-.06em; margin:12px 0; }
+.faq-orbit-label i { font-size:8px; font-style:normal; color:#8aa6c2; white-space:nowrap; }
+.faq-topic, .faq-contact-node { position:absolute; translate:-50% -50%; display:flex; flex-direction:column; align-items:center; gap:5px; width:142px; padding:12px 8px; color:#afc4db; border:1px solid #72dcff2e; background:#09162b; border-radius:12px; font-family:var(--font-body); font-size:11px; line-height:1.35; text-align:center; cursor:pointer; transition:background .25s,color .25s,box-shadow .25s,transform .25s; }
+.faq-topic-number { display:grid; place-items:center; width:23px; height:23px; border:1px solid #72dcff55; border-radius:50%; font-size:9px; color:#79d8ff; }
+.faq-topic-0 { left:50%; top:8%; }
+.faq-topic-1 { left:86%; top:29%; }
+.faq-topic-2 { left:86%; top:71%; }
+.faq-topic-3 { left:50%; top:92%; }
+.faq-topic-4 { left:14%; top:71%; }
+.faq-contact-node { left:14%; top:29%; background:transparent; border-style:dashed; }
+.faq-contact-node > span { font-size:22px; color:#8feaff; line-height:1; }
+.faq-topic:hover, .faq-topic.is-active, .faq-contact-node:hover { color:#06172b; background:#9aeaff; border-color:#c5f6ff; box-shadow:0 0 32px #72dcff22; transform:translateY(-3px); }
+.faq-topic.is-active .faq-topic-number, .faq-topic:hover .faq-topic-number { color:#08437b; border-color:#08437b66; }
+.faq-contact-node:hover > span { color:#06172b; }
+.faq-topic:focus-visible, .faq-contact-node:focus-visible { outline:2px solid #9beaff; outline-offset:5px; }
+.faq-answers { min-height:330px; padding:32px 0 32px 34px; border-left:1px solid #72dcff33; }
+.faq-answer-index { color:#70d8ff; font-size:12px; letter-spacing:.12em; }
+#faq .faq-answer h3 { color:#f0f8ff; font-size:clamp(25px,2.5vw,35px); line-height:1.2; margin:20px 0; letter-spacing:-.035em; }
+.faq-answer > p { color:#afc2d8; line-height:1.9; font-size:15px; }
+.faq-answer-link { display:inline-flex; gap:24px; color:#8adeff; font-size:13px; margin-top:28px; border-bottom:1px solid #72dcff44; padding-bottom:6px; }
+.faq-answer-link:hover { color:#fff; }
+@keyframes topic-enter { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
+@media(max-width:1000px) { .faq-explorer { gap:28px; } .faq-topic, .faq-contact-node { width:112px; font-size:10px; padding:10px 6px; } .career-detail { gap:30px; } }
+@media(max-width:700px) {
+  .career-scroll { margin-top:32px; }
+  .career-track { min-width:780px; }
+  .career-detail { grid-template-columns:1fr; gap:18px; }
+  .career-panels { min-height:300px; }
+  .faq-explorer { grid-template-columns:1fr; gap:25px; margin-top:28px; }
+  .faq-orbit { max-width:500px; }
+  .faq-topic, .faq-contact-node { width:100px; font-size:9px; padding:8px 5px; border-radius:9px; }
+  .faq-topic-number { width:19px; height:19px; font-size:8px; }
+  .faq-orbit-label strong { font-size:32px; }
+  .faq-orbit-label > span { font-size:7px; }
+  .faq-orbit-label i { font-size:7px; }
+  .faq-answers { min-height:300px; padding:26px 0 0; border-left:0; border-top:1px solid #72dcff33; }
+}
+@media(max-width:380px) { .faq-topic, .faq-contact-node { width:88px; font-size:8px; } .faq-orbit-label strong { font-size:26px; } }
+@media(prefers-reduced-motion:reduce) {
+  .career-detail:not([hidden]), .faq-answer:not([hidden]) { animation:none; }
+  .career-node::after, .career-node::before, .career-company, .faq-topic, .faq-contact-node { transition:none; }
+}
