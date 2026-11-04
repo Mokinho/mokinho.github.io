@@ -8,8 +8,8 @@
   --sand: #9beaf4;
   --canvas: #000000;
   --surface: rgba(12, 8, 6, .86);
-  --surface-solid: #0c0806;
-  --surface-soft: #16100c;
+  --surface-solid: #090d14;
+  --surface-soft: #0d1626;
   --line: rgba(255, 255, 255, .08);
   --heading: #ffffff;
   --body: #c1cad5;
@@ -609,7 +609,7 @@ main { display: flex; flex-direction: column; gap: var(--gap); }
   transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
   outline: none;
 }
-.dock-item:hover, .dock-item:focus-visible { color: var(--accent); border-color: rgba(20,92,255,.6); background: #1f150f; }
+.dock-item:hover, .dock-item:focus-visible { color: var(--accent); border-color: rgba(20,92,255,.6); background: #0b1d3d; }
 .dock-item:focus-visible { box-shadow: 0 0 0 2px rgba(20,92,255,.55); }
 .dock-icon { display: flex; align-items: center; justify-content: center; }
 .dock-label {
@@ -736,7 +736,7 @@ footer li a:hover { color: var(--sub); }
 /* ---------- Hamburger menu: OptionWheel overlay (≤900px) ---------- */
 .nav-wheel {
   position: fixed; inset: 0; z-index: 99;
-  background: radial-gradient(120% 70% at 0% 50%, rgba(20,92,255,.18), transparent 60%), rgba(8,5,3,.94);
+  background: radial-gradient(120% 70% at 0% 50%, rgba(20,92,255,.18), transparent 60%), rgba(5,10,22,.94);
   -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
   opacity: 0; visibility: hidden; transition: opacity .3s var(--ease), visibility 0s linear .3s;
 }
@@ -1202,11 +1202,11 @@ main > .stats { background:#0a101c; border:1px solid rgba(114,220,255,.2); borde
   box-shadow:0 14px 20px -12px rgba(21,45,73,.35),0 3px 5px rgba(21,45,73,.06);
   rotate:var(--tilt); transition:rotate .25s,box-shadow .25s,transform .25s;
 }
-#skills .service-card:nth-child(2) { --note:#e3f7d6; --pin:#54b800; --tilt:2deg; }
-#skills .service-card:nth-child(3) { --note:#e2f8f4; --pin:#00a58b; --tilt:-2deg; }
-#skills .service-card:nth-child(4) { --note:#fff3cf; --pin:#ebaf00; --tilt:2deg; }
-#skills .service-card:nth-child(5) { --note:#eee5ff; --pin:#8c38d8; --tilt:-2deg; }
-#skills .service-card:nth-child(6) { --note:#fce0ed; --pin:#d62a84; --tilt:3deg; }
+#skills .service-card:nth-child(2) { --note:#d9f5ff; --pin:#0875fa; --tilt:2deg; }
+#skills .service-card:nth-child(3) { --note:#c5f3f7; --pin:#009cda; --tilt:-2deg; }
+#skills .service-card:nth-child(4) { --note:#dce8ff; --pin:#145cff; --tilt:2deg; }
+#skills .service-card:nth-child(5) { --note:#e8f7ff; --pin:#1686e8; --tilt:-2deg; }
+#skills .service-card:nth-child(6) { --note:#bfeafa; --pin:#007cc4; --tilt:3deg; }
 #skills .service-card::before {
   content:""; position:absolute; width:23px; height:23px; top:-12px; left:calc(50% - 11px); right:auto; bottom:auto;
   background:radial-gradient(circle at 32% 24%,#ffffffb5,transparent 35%),var(--pin);
@@ -1244,3 +1244,10 @@ main > .stats { background:#0a101c; border:1px solid rgba(114,220,255,.2); borde
 .hero .pill-accent { background:rgba(20,92,255,.14); border-color:rgba(114,220,255,.3); color:#9beaff; }
 .hero .glow.g1 { background:radial-gradient(circle,#145cff 0%,#063ed0 45%,transparent 68%); }
 .hero .glow.g2 { background:radial-gradient(circle,#72dcff 0%,#1686e8 40%,transparent 68%); }
+
+/* Pinned skills board in the same blue / cyan palette as the portfolio. */
+#skills { background-color:#0847d5; background-image:linear-gradient(125deg,#0638b8 0%,#1264ec 54%,#6ee4ef 100%); border-color:#4b9fff; }
+#skills > h2 { color:#fff; }
+#skills > .pill { background:#071b45; color:#a3f1ff; border-color:#72dcff66; }
+#skills .service-grid::before { border-color:#b8f7ff88; }
+#skills .service-card:hover { border-color:#72dcff; box-shadow:0 20px 32px -15px #011b55b3; }
