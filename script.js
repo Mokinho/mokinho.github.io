@@ -298,7 +298,7 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
       { text: ' &\nBUILT TO GROW' }
     ],
     sizeFrom: title,
-    fontWeight: 700,
+    fontWeight: 900,
     lineHeight: 0.98,
     letterSpacing: -0.03,
     align: 'center',
