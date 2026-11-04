@@ -1378,3 +1378,9 @@ footer .footer-panel { background:none; border:0; border-radius:0; padding:72px 
   #contact h2 { font-size:44px; }
   footer .footer-panel { padding-top:48px; }
 }
+
+/* Full-bleed section backgrounds take precedence over earlier panel treatments. */
+#main > #work { background:linear-gradient(122deg,#0637bf,#1465ed 58%,#6edee7); }
+#main > #playground, #main > #faq { background:#060a11; }
+#main > #more-work { background:#05080e; }
+#main > #experience { background:#0a111d; }
