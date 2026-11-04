@@ -1688,3 +1688,56 @@ footer.landscape-footer .to-top:hover { color:#145cff; }
   .section-connector.connector-2 svg { width:62px; height:68px; top:-32px; right:14px; }
   .section-connector path { stroke-width:6; }
 }
+
+/* One continuous Earth-to-orbit canvas, shared by all sections. */
+body.cosmic-journey {
+  background:linear-gradient(180deg,#030711 0%,#050a17 28%,#061021 60%,#0a1c38 82%,#123866 95%,#15528b 100%);
+  position:relative; isolation:isolate;
+}
+.cosmic-journey::before, .cosmic-journey::after { display:none; }
+.cosmic-sky { position:fixed; inset:0; pointer-events:none; z-index:-1; overflow:hidden; }
+.cosmic-stars { position:absolute; inset:0; opacity:.55; background-image:radial-gradient(circle at 18px 32px,#e4faff 1px,transparent 1.5px),radial-gradient(circle at 114px 78px,#72dcff .8px,transparent 1.3px),radial-gradient(circle at 54px 148px,#3b7fff 1px,transparent 1.8px); background-size:227px 263px,319px 347px,411px 389px; }
+.cosmic-haze { position:absolute; inset:-20%; background:radial-gradient(ellipse at 80% 20%,#145cff0d,transparent 55%),radial-gradient(ellipse at 15% 80%,#72dcff09,transparent 45%); }
+#main > #top, #main > #work, #main > #playground, #main > #about,
+#main > .stats, #main > #skills, #main > #more-work, #main > #experience,
+#main > #faq, #main > #contact, footer.shell.landscape-footer { background:transparent; }
+#top > .hero-media::after { background:radial-gradient(ellipse at 50% 35%,transparent,#03071144); }
+#top .hero-grid { opacity:.2; }
+#top .glow { opacity:.22; }
+#contact > .hero-media { opacity:.18; }
+#contact > .hero-media::after { background:none; }
+#skills .service-grid::before { border-color:#72dcff44; }
+#work { --project-cutout:#071021; }
+#main > #contact { position:relative; overflow:hidden; isolation:isolate; padding-top:150px; padding-bottom:150px; }
+#contact .contact-body { position:relative; z-index:2; }
+#contact .contact-body > .pill { color:#a4ebff; background:#0e284c; border:1px solid #72dcff44; letter-spacing:.1em; }
+#contact h2 { font-size:clamp(48px,6vw,86px); max-width:1000px; }
+#contact .contact-dock { display:flex; justify-content:center; margin-top:45px; }
+#contact .dock-outer { justify-content:center; }
+#contact .contact-body > p:not(.pill) { max-width:570px; color:#bad5e9; }
+.contact-orbit-scene { position:absolute; inset:0; z-index:0; pointer-events:none; }
+.contact-orbit-scene > svg { width:100%; height:100%; max-width:none; }
+.contact-planet { transform-origin:1000px 140px; animation:planet-drift 9s ease-in-out infinite alternate; }
+.contact-satellite { transform-origin:135px 445px; animation:satellite-float 8s ease-in-out infinite alternate; }
+.journey-rocket { position:fixed; top:0; left:20px; width:30px; height:62px; z-index:12; pointer-events:none; transform:translate3d(0,var(--flight-y,15vh),0); filter:drop-shadow(0 0 12px #72dcff44); will-change:transform; }
+.journey-rocket svg { width:100%; height:100%; }
+.rocket-flame { transform-origin:26px 72px; animation:rocket-thrust .6s ease-in-out infinite alternate; }
+footer.landscape-footer .footer-panel { background:#f2f9fff5; }
+@keyframes rocket-thrust { from { transform:scaleY(.8); opacity:.65; } to { transform:scaleY(1.15); opacity:1; } }
+@keyframes planet-drift { to { transform:translateY(-14px) rotate(5deg); } }
+@keyframes satellite-float { to { translate:0 -14px; } }
+/* Progressive enhancement: reveals only run after the observer is ready. */
+.section-reveal-ready .journey-reveal { opacity:0; transform:translateY(20px); transition:opacity .7s ease,transform .8s cubic-bezier(.2,.8,.2,1); }
+.section-reveal-ready .journey-reveal.is-revealed { opacity:1; transform:none; }
+@media(max-width:700px) {
+  .journey-rocket { left:auto; right:5px; width:21px; height:44px; opacity:.65; }
+  #main > #contact { padding-top:100px; padding-bottom:105px; }
+  #contact h2 { font-size:46px; }
+  .contact-orbit-scene { left:-35%; right:-35%; opacity:.6; }
+  .contact-satellite { opacity:.4; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .journey-rocket { display:none; }
+  .contact-planet, .contact-satellite, .rocket-flame { animation:none; }
+  .section-reveal-ready .journey-reveal { opacity:1; transform:none; transition:none; }
+}
