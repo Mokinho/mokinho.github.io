@@ -46,7 +46,23 @@
 .contact-link:hover { background: rgba(var(--pop-rgb), .12); border-color: var(--pop); }
 .dock-item:hover, .dock-item:focus-visible { color: var(--pop); border-color: rgba(var(--pop-rgb), .6); background: #2a0a1c; }
 
-/* A soft pink glow drifting through the background */
-body::after {
-  background: radial-gradient(circle, rgba(var(--pop-rgb), .16) 0%, rgba(var(--pop-rgb), .05) 45%, transparent 70%);
+/* ---------- Background: pink nebula + pink stars (~10%) ---------- */
+.cosmic-haze {
+  background:
+    radial-gradient(ellipse 45% 35% at 82% 30%, rgba(var(--pop-rgb), .13), transparent 70%),
+    radial-gradient(ellipse 35% 30% at 8% 72%, rgba(var(--pop-rgb), .09), transparent 70%),
+    radial-gradient(ellipse at 80% 20%, #145cff0d, transparent 55%),
+    radial-gradient(ellipse at 15% 80%, #72dcff09, transparent 45%);
+  animation: pinkHaze 24s ease-in-out infinite alternate;
 }
+@keyframes pinkHaze { to { transform: translate(-3%, 4%) scale(1.06); } }
+.cosmic-stars {
+  background-image:
+    radial-gradient(circle at 18px 32px, #e4faff 1px, transparent 1.5px),
+    radial-gradient(circle at 114px 78px, #72dcff .8px, transparent 1.3px),
+    radial-gradient(circle at 54px 148px, #3b7fff 1px, transparent 1.8px),
+    radial-gradient(circle at 160px 210px, #ff5aa9 1.1px, transparent 1.8px);
+  background-size: 227px 263px, 319px 347px, 411px 389px, 373px 431px;
+}
+#top .glow.g2 { background: radial-gradient(circle, var(--pop) 0%, var(--pop-deep) 40%, transparent 68%); }
+@media (prefers-reduced-motion: reduce) { .cosmic-haze { animation: none; } }
