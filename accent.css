@@ -1,0 +1,52 @@
+/* ==========================================================
+   Hot pink accent layer (~15%) on top of the black / blue base.
+   Loaded after style.css. Remove this file's <link> to revert.
+   ========================================================== */
+:root {
+  --pop: #ff2e93;
+  --pop-hover: #ff5aa9;
+  --pop-deep: #d6106f;
+  --pop-rgb: 255, 46, 147;
+}
+
+::selection { background: var(--pop); color: #fff; }
+
+/* Primary "talk to me" calls to action */
+.site-header .header-cta { background: linear-gradient(110deg, var(--pop-deep), var(--pop) 55%, var(--pop-hover)); color: #fff; box-shadow: 0 10px 24px -12px rgba(var(--pop-rgb), .9); }
+.site-header .header-cta:hover { background: var(--pop-hover); color: var(--ink); }
+
+.spin-badge { background: var(--pop); box-shadow: 0 20px 40px -16px rgba(var(--pop-rgb), .8); }
+.spin-badge:hover { background: var(--pop-hover); }
+
+/* Hero decoration */
+.squiggle path { stroke: var(--pop); }
+.gc-icon { background: var(--pop); }
+
+/* Hero tray: one pink highlight */
+.tw-bubble { background: var(--pop); }
+.tw-bubble::after { background: var(--pop); }
+
+/* Section labels: pink dot in front of every pill */
+.pill::before {
+  content: ''; display: inline-block; width: 7px; height: 7px; margin-right: 8px;
+  border-radius: 50%; background: var(--pop); vertical-align: 1px;
+  box-shadow: 0 0 10px rgba(var(--pop-rgb), .9);
+}
+
+/* Lists, links and small details */
+.service-card li::before, .wide-points li::before { background: var(--pop); }
+#skills .service-card.service-card.service-card { --pin: var(--pop); }
+#skills .service-card li::before { background: var(--pop); }
+.feature-link, .project-link:hover { color: var(--pop); }
+.faq-list details[open] { border-color: rgba(var(--pop-rgb), .45); }
+.faq-list details[open] summary::after { background: var(--pop); border-color: var(--pop); color: var(--ink); }
+
+/* Contact */
+#contact .contact-label, .contact-label { color: var(--pop); }
+.contact-link:hover { background: rgba(var(--pop-rgb), .12); border-color: var(--pop); }
+.dock-item:hover, .dock-item:focus-visible { color: var(--pop); border-color: rgba(var(--pop-rgb), .6); background: #2a0a1c; }
+
+/* A soft pink glow drifting through the background */
+body::after {
+  background: radial-gradient(circle, rgba(var(--pop-rgb), .16) 0%, rgba(var(--pop-rgb), .05) 45%, transparent 70%);
+}
