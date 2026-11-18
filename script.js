@@ -301,7 +301,7 @@ document.querySelectorAll('canvas.particles').forEach(canvas => {
     fontWeight: 900,
     lineHeight: 0.98,
     letterSpacing: -0.03,
-    align: 'center',
+    align: 'left',
     pad: 32,
     color: '#ffffff',
     accentColor: accent,
