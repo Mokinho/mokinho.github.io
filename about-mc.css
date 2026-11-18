@@ -84,11 +84,11 @@ main > .stats { background: transparent; gap: 18px; padding-top: 0; }
 }
 .stats .stat:hover { transform: translateY(-5px); border-color: rgba(var(--st), .4); box-shadow: 0 30px 60px -36px rgba(var(--st), .7); }
 .stats .stat:hover::before { opacity: 1; }
-.stat-ic {
-  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 13px; margin-bottom: 18px;
+.stats .stat .stat-ic {
+  display: grid; place-items: center; width: 54px; height: 54px; border-radius: 16px; margin: 0 0 18px; flex: none;
   color: rgb(var(--st)); background: rgba(var(--st), .12); border: 1px solid rgba(var(--st), .3);
 }
-.stat-ic svg { width: 20px; height: 20px; }
+.stats .stat .stat-ic svg { width: 28px; height: 28px; stroke-width: 1.7; }
 .stats .stat strong {
   font-size: clamp(42px, 4.2vw, 60px); font-variant-numeric: tabular-nums;
   background: linear-gradient(110deg, rgb(var(--st)), #e9fbff); -webkit-background-clip: text; background-clip: text; color: transparent;
@@ -104,7 +104,8 @@ main > .stats { background: transparent; gap: 18px; padding-top: 0; }
 @media (max-width: 760px) {
   main > .stats { gap: 12px; }
   .stats .stat, .stats .stat + .stat, .stats .stat:first-child { padding: 18px 18px 20px; border-radius: 18px; }
-  .stat-ic { width: 34px; height: 34px; margin-bottom: 12px; }
+  .stats .stat .stat-ic { width: 44px; height: 44px; border-radius: 14px; margin-bottom: 12px; }
+  .stats .stat .stat-ic svg { width: 23px; height: 23px; }
   .stats .stat strong { font-size: 34px; }
   .stats .stat span:not(.stat-ic) { font-size: 12.5px; }
 }
