@@ -54,8 +54,10 @@
   if (badge) {
     badge.classList.add('spin-badge--float');
     document.body.appendChild(badge);
-    let pastHero = false; let atContact = false;
-    const update = () => badge.classList.toggle('is-visible', pastHero && !atContact);
+    let pastHero = false; let atContact = false; let atFooter = false;
+    const update = () => badge.classList.toggle('is-visible', pastHero && !atContact && !atFooter);
+    const foot = document.querySelector('footer');
+    if (foot) new IntersectionObserver(([e]) => { atFooter = e.isIntersecting; update(); }, { threshold: 0.05 }).observe(foot);
     new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; update(); }, { threshold: 0.05 }).observe(hero);
     if (contact) new IntersectionObserver(([e]) => { atContact = e.isIntersecting; update(); }, { threshold: 0.15 }).observe(contact);
   }
