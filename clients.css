@@ -57,17 +57,8 @@
 
 @media (max-width: 760px) {
   #main > #clients { padding-top: 48px; padding-bottom: 48px; }
-  .logo-marquee { margin-top: 26px; --gap: 12px; }
-  .logo-track { animation-duration: 36s; }
-  .logo-item { height: 72px; min-width: 120px; padding: 0 20px; border-radius: 18px; }
-  .logo-item img { transform: scale(.82); }
-  .logo-item:hover img { transform: scale(.86); }
-}
-@media (hover: none) {
-  /* touch screens: show colours on chips without needing hover */
-  .logo-item img { filter: none; opacity: 1; }
-  .logo-item[data-tone="dark"] { background: #fff; border-color: #fff; }
-  .logo-item[data-tone="light"] { background: #0d1b33; }
+  .logo-marquee { margin-top: 26px; }
+  .logo-track { animation-duration: 40s; }
 }
 @media (prefers-reduced-motion: reduce) {
   .logo-track { animation: none; }

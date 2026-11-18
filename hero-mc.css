@@ -188,7 +188,11 @@ html.intro .hv-chip { animation: intro-blur .8s var(--ease) 2.1s both; }
   #process .hero-tray { grid-template-columns: 1fr; }
   #process .tray-arrow { display: none; }
 }
+@media (max-width: 760px) {
+  .spin-badge.spin-badge--float { display: none; }
+}
 @media (max-width: 600px) {
+  .hero .hero-copy > .pill { font-size: 10px; letter-spacing: .08em; padding: 7px 12px; white-space: nowrap; max-width: 100%; }
   .hero .hero-stage--mc .hero-sub { font-size: 15.5px; }
   .hero-trust { border-radius: 18px; padding: 10px 14px 10px 10px; }
   .hero-trust-logos { gap: 10px; }
