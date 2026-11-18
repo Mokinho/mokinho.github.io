@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@125,700;125,800;125,900&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=20261104-archivo-mobile-gap">
 <link rel="stylesheet" href="accent.css?v=20261111-hotpink-bg">
+<link rel="stylesheet" href="play-cards.css?v=20261118">
 <script>(function(d){d.classList.add('intro');setTimeout(function(){if(!document.querySelector('.hero-sub.is-split'))d.classList.remove('intro');},4500);})(document.documentElement);</script>
 </head>
 <body class="cosmic-journey">
@@ -661,37 +662,41 @@
     <h2 class="reveal">Portfolios you can play</h2>
     <p class="lead reveal">Side projects where I push past WordPress — two interactive versions of this portfolio, built from scratch with plain JavaScript and deployed on GitHub Pages.</p>
     <div class="play-grid">
-      <article class="play-card reveal">
-        <a class="play-media" href="https://mokinho.github.io/faiqzharfan/" target="_blank" rel="noopener noreferrer" aria-label="Play Drive-Thru Portfolio">
-          <img src="assets/projects/drive-thru-portfolio.jpg" alt="3D toy car driving past Kedai Kopi and Rumah Faiq under a giant Drive Thru title" width="960" height="600" loading="lazy">
-          <span class="play-badge">▶ Play in browser</span>
-        </a>
-        <div class="play-body">
-          <p class="project-tag">3D Web Game · 2026</p>
-          <h3>Drive-Thru Portfolio</h3>
-          <p>Drive a toy car around a small Malaysian-flavoured city block to explore my story, skills, work and contact details. Visit Rumah Faiq for my background, Bengkel Kemahiran for skills, cruise Jalan Faiq past 21 project billboards, and stop at Kedai Kopi to get in touch.</p>
-          <ul class="chips">
-            <li>Three.js</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Keyboard &amp; touch controls</li>
-          </ul>
-          <div class="play-actions">
-            <a href="https://mokinho.github.io/faiqzharfan/" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Start driving ↗</a>
+      <article class="play-card play-card--drive reveal">
+        <div class="play-tilt">
+          <a class="play-media" href="https://mokinho.github.io/faiqzharfan/" target="_blank" rel="noopener noreferrer" aria-label="Play Drive-Thru Portfolio">
+            <img src="assets/projects/drive-thru-portfolio.jpg" alt="3D toy car driving past Kedai Kopi and Rumah Faiq under a giant Drive Thru title" width="960" height="600" loading="lazy">
+            <span class="play-badge"><span class="play-badge-dot" aria-hidden="true">▶</span>Play in browser</span>
+          </a>
+          <div class="play-body">
+            <p class="project-tag">3D Web Game · 2026</p>
+            <h3>Drive-Thru Portfolio</h3>
+            <p>Drive a toy car around a small Malaysian-flavoured city block to explore my story, skills, work and contact details. Visit Rumah Faiq for my background, Bengkel Kemahiran for skills, cruise Jalan Faiq past 21 project billboards, and stop at Kedai Kopi to get in touch.</p>
+            <ul class="chips">
+              <li>Three.js</li><li>JavaScript</li><li>HTML &amp; CSS</li><li>Keyboard &amp; touch controls</li>
+            </ul>
+            <div class="play-actions">
+              <a href="https://mokinho.github.io/faiqzharfan/" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Start driving <span class="btn-arrow" aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </div>
       </article>
-      <article class="play-card reveal">
-        <a class="play-media" href="https://mokinho.github.io/2D-Super-Mario-Portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Play Portfolio Quest">
-          <img src="assets/projects/portfolio-quest.jpg" alt="3D toy developer figure standing on a code block under a giant Level Up title" width="960" height="600" loading="lazy">
-          <span class="play-badge">▶ Play in browser</span>
-        </a>
-        <div class="play-body">
-          <p class="project-tag">2D Platformer · Pixel Art</p>
-          <h3>Portfolio Quest</h3>
-          <p>Run, jump and explore four worlds themed around my resume — About, Skills, Work and Contact. Hit blocks to read about me, jump into pipes to open project cards, stomp bugs and collect coins. Every sprite is original pixel art generated in code, with 8-bit sound effects and a Classic Resume view.</p>
-          <ul class="chips">
-            <li>Phaser 3</li><li>JavaScript</li><li>Procedural pixel art</li><li>Web Audio</li>
-          </ul>
-          <div class="play-actions">
-            <a href="https://mokinho.github.io/2D-Super-Mario-Portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Start quest ↗</a>
+      <article class="play-card play-card--quest reveal">
+        <div class="play-tilt">
+          <a class="play-media" href="https://mokinho.github.io/2D-Super-Mario-Portfolio/" target="_blank" rel="noopener noreferrer" aria-label="Play Portfolio Quest">
+            <img src="assets/projects/portfolio-quest.jpg" alt="3D toy developer figure standing on a code block under a giant Level Up title" width="960" height="600" loading="lazy">
+            <span class="play-badge"><span class="play-badge-dot" aria-hidden="true">▶</span>Play in browser</span>
+          </a>
+          <div class="play-body">
+            <p class="project-tag">2D Platformer · Pixel Art</p>
+            <h3>Portfolio Quest</h3>
+            <p>Run, jump and explore four worlds themed around my resume — About, Skills, Work and Contact. Hit blocks to read about me, jump into pipes to open project cards, stomp bugs and collect coins. Every sprite is original pixel art generated in code, with 8-bit sound effects and a Classic Resume view.</p>
+            <ul class="chips">
+              <li>Phaser 3</li><li>JavaScript</li><li>Procedural pixel art</li><li>Web Audio</li>
+            </ul>
+            <div class="play-actions">
+              <a href="https://mokinho.github.io/2D-Super-Mario-Portfolio/" target="_blank" rel="noopener noreferrer" class="btn btn-accent">Start quest <span class="btn-arrow" aria-hidden="true">↗</span></a>
+            </div>
           </div>
         </div>
       </article>
@@ -920,5 +925,6 @@
 <script src="true-focus.js" defer></script>
 <script src="gradual-blur.js" defer></script>
 <script src="script.js?v=20261104-archivo-mobile-gap" defer></script>
+<script src="play-cards.js?v=20261118" defer></script>
 </body>
 </html>
