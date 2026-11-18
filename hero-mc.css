@@ -21,7 +21,7 @@ main > .hero { min-height: auto; padding-top: 64px; padding-bottom: 40px; }
 /* title: left aligned, sized for the column */
 .hero .hero-stage--mc .hero-title { max-width: none; width: 100%; }
 .hero .hero-stage--mc h1 {
-  font-size: clamp(44px, 5.3vw, 86px); line-height: .94; margin: 20px 0 22px; text-align: left;
+  font-size: clamp(40px, 4.6vw, 80px); line-height: .94; margin: 20px 0 22px; text-align: left;
 }
 .hero .hero-stage--mc .hero-sub { max-width: 520px; font-size: 17px; line-height: 1.65; margin: 0; color: rgba(225, 235, 248, .8); }
 .hero .hero-stage--mc .btn-row { justify-content: flex-start; margin-top: 30px; }
@@ -183,7 +183,7 @@ html.intro .hv-chip { animation: intro-blur .8s var(--ease) 2.1s both; }
 @media (max-width: 900px) {
   main > .hero { padding-top: 40px; }
   .hero .hero-stage--mc { grid-template-columns: 1fr; min-height: 0; gap: 18px; }
-  .hero .hero-stage--mc h1 { font-size: clamp(40px, 11vw, 72px); }
+  .hero .hero-stage--mc h1 { font-size: clamp(34px, 9.2vw, 68px); }
   .hero-visual { max-width: 560px; justify-self: center; min-height: 0; aspect-ratio: 1 / .86; }
   #process .hero-tray { grid-template-columns: 1fr; }
   #process .tray-arrow { display: none; }
