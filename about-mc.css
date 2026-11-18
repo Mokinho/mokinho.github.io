@@ -1,0 +1,114 @@
+/* ==========================================================================
+   About + stats — matched to the glass card system
+   Portrait gets a cursor border light + gentle tilt; story is trimmed to two
+   paragraphs with the rest in "Read my full story"; three trait tiles; stats
+   become colour-coded spotlight cards that count up when they scroll in.
+   ========================================================================== */
+
+/* ---------- portrait ---------- */
+#about .profile-portrait {
+  --mx: 50%; --my: 0%;
+  position: relative; isolation: isolate;
+  transition: transform .6s var(--ease), box-shadow .6s var(--ease);
+}
+#about .profile-portrait::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; border-radius: inherit; padding: 1.5px; pointer-events: none;
+  background: radial-gradient(260px circle at var(--mx) var(--my), #9beaff, rgba(20, 92, 255, .55) 40%, transparent 70%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 0; transition: opacity .45s ease;
+}
+#about .profile-portrait:hover::after { opacity: 1; }
+#about .profile-portrait:hover { transform: translateY(-6px); box-shadow: 0 40px 80px -46px rgba(20, 92, 255, .8); }
+#about .profile-portrait > img { transition: transform 1.2s var(--ease), filter .8s ease; }
+#about .profile-portrait:hover > img { transform: scale(1.04); filter: contrast(1.05); }
+
+/* ---------- story ---------- */
+#about .about-panel > p:not(.pill) { max-width: 640px; }
+.about-traits {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;
+  margin: 26px 0 0; padding: 0; list-style: none; max-width: 680px;
+}
+.about-traits li {
+  display: flex; flex-direction: column; gap: 4px;
+  padding: 16px 16px 15px; border-radius: 18px;
+  background: radial-gradient(130% 80% at 0% 0%, rgba(20, 92, 255, .12), transparent 60%), linear-gradient(180deg, #0d1422, #080c15);
+  border: 1px solid rgba(255, 255, 255, .08);
+  transition: transform .5s var(--ease), border-color .4s ease;
+}
+.about-traits li:hover { transform: translateY(-4px); border-color: rgba(114, 220, 255, .35); }
+.at-ic {
+  display: grid; place-items: center; width: 34px; height: 34px; border-radius: 11px; margin-bottom: 8px;
+  color: #fff; background: linear-gradient(140deg, #145cff, #72dcff);
+  box-shadow: 0 10px 20px -10px rgba(20, 92, 255, .9);
+}
+.about-traits li:nth-child(2) .at-ic { background: linear-gradient(140deg, #8b5cff, #c4a0ff); box-shadow: 0 10px 20px -10px rgba(139, 92, 255, .9); }
+.about-traits li:nth-child(3) .at-ic { background: linear-gradient(140deg, #ff2e93, #ff96c8); box-shadow: 0 10px 20px -10px rgba(255, 46, 147, .9); }
+.at-ic svg { width: 18px; height: 18px; }
+.about-traits strong { color: #fff; font-size: 14.5px; font-weight: 700; }
+.about-traits li > span:last-child { color: #9fb0c6; font-size: 12.5px; line-height: 1.45; }
+
+.about-more { margin-top: 18px; max-width: 680px; border-top: 1px solid rgba(114, 220, 255, .16); }
+.about-more summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 0; cursor: pointer; list-style: none;
+  color: #9beaff; font-size: 13.5px; font-weight: 600;
+}
+.about-more summary::-webkit-details-marker { display: none; }
+.am-ic {
+  display: grid; place-items: center; width: 26px; height: 26px; border-radius: 50%;
+  border: 1px solid rgba(114, 220, 255, .35); font-size: 17px; line-height: 1; transition: rotate .3s var(--ease), background .3s ease;
+}
+.about-more[open] .am-ic { rotate: 45deg; background: rgba(114, 220, 255, .12); }
+.about-more summary:hover { color: #fff; }
+#about .about-more p { margin-top: 0; margin-bottom: 14px; }
+.about-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
+#about .about-actions .btn { margin-top: 0; }
+
+/* ---------- stats: spotlight cards ---------- */
+main > .stats { background: transparent; gap: 18px; padding-top: 0; }
+.stats .stat,
+.stats .stat + .stat,
+.stats .stat:first-child {
+  --mx: 50%; --my: 0%;
+  position: relative; overflow: hidden; isolation: isolate;
+  display: flex; flex-direction: column; padding: 24px 24px 26px;
+  border-radius: 22px; border: 1px solid rgba(255, 255, 255, .08);
+  background: radial-gradient(130% 80% at 0% 0%, rgba(var(--st), .12), transparent 55%), linear-gradient(180deg, #0d1422, #080c15);
+  transition: opacity .8s var(--ease), transform .5s var(--ease), border-color .4s ease, box-shadow .5s var(--ease);
+}
+.stats .stat::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(260px circle at var(--mx) var(--my), rgba(var(--st), .2), transparent 65%);
+  opacity: 0; transition: opacity .4s ease;
+}
+.stats .stat:hover { transform: translateY(-5px); border-color: rgba(var(--st), .4); box-shadow: 0 30px 60px -36px rgba(var(--st), .7); }
+.stats .stat:hover::before { opacity: 1; }
+.stat-ic {
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 13px; margin-bottom: 18px;
+  color: rgb(var(--st)); background: rgba(var(--st), .12); border: 1px solid rgba(var(--st), .3);
+}
+.stat-ic svg { width: 20px; height: 20px; }
+.stats .stat strong {
+  font-size: clamp(42px, 4.2vw, 60px); font-variant-numeric: tabular-nums;
+  background: linear-gradient(110deg, rgb(var(--st)), #e9fbff); -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.stats .stat span:not(.stat-ic) { max-width: 240px; color: #b6c4d6; }
+
+@media (max-width: 1000px) {
+  .about-traits { grid-template-columns: 1fr; max-width: 520px; }
+  .about-traits li { flex-direction: row; flex-wrap: wrap; align-items: center; column-gap: 12px; }
+  .about-traits .at-ic { margin-bottom: 0; }
+  .about-traits li > span:last-child { flex-basis: 100%; padding-left: 46px; margin-top: -6px; }
+}
+@media (max-width: 760px) {
+  main > .stats { gap: 12px; }
+  .stats .stat, .stats .stat + .stat, .stats .stat:first-child { padding: 18px 18px 20px; border-radius: 18px; }
+  .stat-ic { width: 34px; height: 34px; margin-bottom: 12px; }
+  .stats .stat strong { font-size: 34px; }
+  .stats .stat span:not(.stat-ic) { font-size: 12.5px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #about .profile-portrait, #about .profile-portrait > img, .stats .stat, .about-traits li { transition: none; }
+  #about .profile-portrait:hover, .stats .stat:hover, .about-traits li:hover { transform: none; }
+}
