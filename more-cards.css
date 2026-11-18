@@ -1,0 +1,83 @@
+/* ==========================================================================
+   More projects — reel slides become live browser windows with real
+   homepage screenshots. The current slide glows in the project's own colour
+   and slowly scrolls its page; neighbours stay dimmed and curved.
+   ========================================================================== */
+
+#more-work .project-card { --acc: #72dcff; }
+#more-work .project-card .glow-fx { display: none !important; }
+
+/* slide frame */
+#more-work .reel-slide {
+  background: linear-gradient(180deg, #0f1726, #090e18);
+  border: 1px solid rgba(255, 255, 255, .1);
+}
+#more-work .reel-slide.is-current {
+  border-color: color-mix(in srgb, var(--acc) 55%, transparent);
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--acc) 30%, transparent),
+              0 0 60px -18px color-mix(in srgb, var(--acc) 70%, transparent),
+              0 30px 60px -30px #000;
+}
+
+/* browser window inside the slide */
+#more-work .mockup--shot { display: flex; flex-direction: column; background: transparent; margin: 0; border-radius: 0; }
+#more-work .reel-slide .mockup--shot { height: 100%; }
+#more-work .mockup--shot .mockup-chrome {
+  gap: 7px; height: 38px; padding: 0 14px; flex: none;
+  background: rgba(255, 255, 255, .03); border-bottom: 1px solid rgba(255, 255, 255, .06);
+}
+#more-work .mockup--shot .mockup-chrome .dot { width: 9px; height: 9px; background: #2a3448; transition: background .4s ease; }
+#more-work .reel-slide.is-current .mockup-chrome .dot:nth-child(1) { background: #ff5f57; }
+#more-work .reel-slide.is-current .mockup-chrome .dot:nth-child(2) { background: #febc2e; }
+#more-work .reel-slide.is-current .mockup-chrome .dot:nth-child(3) { background: #28c840; }
+#more-work .mockup--shot .mockup-title {
+  flex: 1; min-width: 0; margin: 0 6px 0 10px; height: 22px; display: flex; align-items: center; justify-content: center;
+  padding: 0 12px; border-radius: 999px; background: rgba(255, 255, 255, .05);
+  color: #9fb0c6; font-family: var(--font-body); font-size: 11.5px; letter-spacing: .01em;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+#more-work .reel-slide .mockup-title { font-size: 11.5px; color: #9fb0c6; }
+#more-work .mockup--shot .sel-live { color: #7f8ea3; }
+
+/* screenshot */
+#more-work .mockup--shot .mockup-photo {
+  position: relative; flex: 1; min-height: 0; aspect-ratio: auto; overflow: hidden; background: #0b1220;
+}
+#more-work .reel-slide:not(.is-current) .mockup-photo,
+#more-work .project-card:not(.reel-slide) .mockup-photo { aspect-ratio: 16 / 10; }
+#more-work .reel-slide .mockup-photo { aspect-ratio: auto; }
+#more-work .mockup--shot .mockup-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 0%;
+  transition: object-position 6s cubic-bezier(.45, 0, .2, 1) .6s, transform 1s var(--ease);
+}
+#more-work .reel-slide.is-current .mockup-photo img { object-position: 50% 100%; transform: scale(1.02); }
+#more-work .mockup--shot .mockup-photo::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, transparent 60%, rgba(5, 8, 14, .35));
+}
+
+/* placeholder for sites without a live preview */
+#more-work .mockup-photo--empty {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  background: radial-gradient(120% 90% at 30% 10%, color-mix(in srgb, var(--acc) 35%, transparent), transparent 60%),
+              linear-gradient(135deg, var(--mock-a, #0b1424), var(--mock-b, #1b2a44));
+  text-align: center;
+}
+#more-work .mockup-empty-name {
+  font-family: var(--font-display); font-stretch: 125%; font-weight: 800;
+  font-size: clamp(26px, 3vw, 40px); letter-spacing: -.02em; color: #fff;
+}
+#more-work .mockup-empty-note {
+  font-size: 11px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255, 255, 255, .65);
+}
+
+/* caption picks up the project colour */
+#more-work .reel-caption .project-tag { color: var(--cap-acc, #83dfff); }
+#more-work .reel-caption .project-link { color: var(--cap-acc, #98e7ff); border-bottom-color: color-mix(in srgb, var(--cap-acc, #72dcff) 45%, transparent); }
+#more-work .reel-caption .project-link:hover { color: #fff; }
+
+@media (prefers-reduced-motion: reduce) {
+  #more-work .mockup--shot .mockup-photo img { transition: none; }
+  #more-work .reel-slide.is-current .mockup-photo img { object-position: 50% 0%; transform: none; }
+}
